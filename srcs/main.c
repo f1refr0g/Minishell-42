@@ -8,23 +8,28 @@ int	main(int ac, char **av, char **env)
 	(void)ac;
 	(void)av;
 	t_data	data;
-	int loop = 0;
-	char	*input;
-
+	// int i = 0;
+	
 	//Initiation des struct etc.
+	// ft_memset(&data, 0, sizeof(t_data));
 	ft_init_minishell(&data, env);
 
-	while (true && loop < 2)
+	while (true && data.state == 0)
 	{
-		input = readline("Minishell > ");	// Get User input inside char *input
+		data.prompt = readline("Minishell > ");	// Get User input inside char *input
 
 		// Do something
-
-		// free(input);					// Free the char *
+		// while (data.env[i])
+		// {
+		// 	printf("%s\n", data.env[i]);
+		// 	i++;
+		// }
+		ft_exit(&data);
+		// free(data.prompt);					// Free the char *
 	
-		loop++;
+		// data.state++;
 
 	}
-	printf("input is : %s\n", input);
+	// ft_clean(&data);
 	return (0);
 }

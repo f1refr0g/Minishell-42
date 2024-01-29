@@ -10,6 +10,7 @@ SRC_DIR := srcs
 FILES :=	main.c\
 			init_minishell.c\
 			builtins.c\
+			clean.c\
 			
 SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
