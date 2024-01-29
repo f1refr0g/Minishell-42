@@ -30,6 +30,12 @@ $(NAME): $(OBJS)
 libinit:
 	$(MAKE) -s -C ./include/libft
 
+COMMIT = $(shell date "+%d %B %T")
+git:
+	@git add .
+	@git commit -m "$(COMMIT)"
+	@git push
+
 clean:
 	$(RM) $(OBJS)
 	@echo $(CLEANING)
