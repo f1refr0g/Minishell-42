@@ -9,6 +9,7 @@ LIBFT = ./include/libft/libft.a
 SRC_DIR := srcs
 FILES :=	main.c\
 			init_minishell.c\
+			builtins.c\
 			
 SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
