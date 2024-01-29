@@ -48,4 +48,6 @@ void    ft_clean(t_data *data);
 //Built-in.c
 void    ft_exit(t_data *data);
 int     check_exit(char *prompt);
+void    ft_env(t_data *data);
+int     check_env(char *prompt);
 #endif
