@@ -24,11 +24,11 @@ void    ft_init_env(t_data *data, char **env)
     data->env = malloc((count + 1) * (sizeof(char *)));
     if (!data->env)
         return (ft_error(MALLOC_ERROR));
-    ft_memset(data->env, 0, sizeof(data->env));
+    ft_memset(data->env, 0, (count + 1) * sizeof(char *));
     while(env[i] != NULL)
     {
-        data->env[i] = ft_calloc(ft_strlen((env[i]) + 1), sizeof(char));
-        ft_memcpy(data->env[i], env[i], ft_strlen((env[i]) + 1));
+        data->env[i] = ft_calloc(ft_strlen(env[i]) + 1, sizeof(char));
+        ft_memcpy(data->env[i], env[i], ft_strlen((env[i])) + 1);
         i++;
     }
 }

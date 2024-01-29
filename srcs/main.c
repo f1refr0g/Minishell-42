@@ -8,7 +8,7 @@ int	main(int ac, char **av, char **env)
 	(void)ac;
 	(void)av;
 	t_data	data;
-	// int i = 0;
+	int i = 0;
 	
 	//Initiation des struct etc.
 	// ft_memset(&data, 0, sizeof(t_data));
@@ -19,11 +19,11 @@ int	main(int ac, char **av, char **env)
 		data.prompt = readline("Minishell > ");	// Get User input inside char *input
 
 		// Do something
-		// while (data.env[i])
-		// {
-		// 	printf("%s\n", data.env[i]);
-		// 	i++;
-		// }
+		while (data.env[i])
+		{
+			printf("%s\n", data.env[i]);
+			i++;
+		}
 		ft_exit(&data);
 		// free(data.prompt);					// Free the char *
 	
