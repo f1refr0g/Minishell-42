@@ -50,4 +50,8 @@ void    ft_exit(t_data *data);
 int     check_exit(char *prompt);
 void    ft_env(t_data *data);
 int     check_env(char *prompt);
+
+//Built-in2.c
+int     check_pwd(char *prompt);
+void    ft_pwd(t_data *data);
 #endif
