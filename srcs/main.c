@@ -14,9 +14,12 @@ int	main(int ac, char **av, char **env)
 	// ft_memset(&data, 0, sizeof(t_data));
 	ft_init_minishell(&data, env);
 
-	while (true && data.state == 0)
+	while (data.state == 0)
 	{
 		data.prompt = readline("Minishell > ");	// Get User input inside char *input
+		data.len = ft_strlen(data.prompt);
+		ft_parse(&data);
+		printf("count = %d\n", ft_count(data.prompt));
 
 		// Do something
 		// while (data.env[i])
@@ -24,9 +27,9 @@ int	main(int ac, char **av, char **env)
 		// 	printf("%s\n", data.env[i]);
 		// 	i++;
 		// }
-		ft_pwd(&data);
-		ft_env(&data);
-		ft_exit(&data);
+		// ft_pwd(&data);
+		// ft_env(&data);
+		// ft_exit(&data);
 		// free(data.prompt);					// Free the char *
 	
 		// data.state++;

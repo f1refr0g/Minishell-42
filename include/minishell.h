@@ -25,6 +25,8 @@ typedef struct s_data
 {
     char             **env;
     char             *prompt;
+    int                 len;
+    int                 nlen;
 
     // struct termios  term;
     int             state;
@@ -54,4 +56,8 @@ int     check_env(char *prompt);
 //Built-in2.c
 int     check_pwd(char *prompt);
 void    ft_pwd(t_data *data);
+
+//token.c
+char    **ft_parse(t_data *data);
+int     ft_count(char *str);
 #endif

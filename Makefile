@@ -1,7 +1,7 @@
 CC = gcc
 RM = rm -rf
 NAME = minishell
-FLAG = -Wall -Werror -Wextra
+FLAG = -Wall -Werror -Wextra -g
 SPECIAL_FLAG = -L./readline -lreadline -lhistory
 LIB_PATH = include/libft
 LIBFT = ./include/libft/libft.a
@@ -12,6 +12,7 @@ FILES :=	main.c\
 			builtins.c\
 			builtins2.c\
 			clean.c\
+			token.c\
 			
 SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
