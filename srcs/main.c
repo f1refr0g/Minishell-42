@@ -19,7 +19,9 @@ int	main(int ac, char **av, char **env)
 		data.prompt = readline("Minishell > ");	// Get User input inside char *input
 		data.len = ft_strlen(data.prompt);
 		ft_parse(&data);
-		printf("count = %d\n", ft_count(data.prompt));
+		ft_expend(&data);
+
+		// printf("count = %d\n", ft_count(data.prompt));
 
 		// Do something
 		// while (data.env[i])

@@ -13,21 +13,35 @@ char    **ft_parse(t_data *data)
     return (tab);
 }
 
-void    ft_expend(t_data *data)
+//NE PAS POUBLIER LE DOLLAR SIGNE DANS MALLOC
+char    *ft_expend(t_data *data)
 {
     int i;
-    int flag;
+    int j;
+    char *newstr;
 
     i = 0;
-    flag = 0;
+    j = 0;
+    newstr = malloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1));
+    if (!newstr)
+        ft_error(MALLOC_ERROR);
     while (data->prompt[i] != '\0')
     {
         if (data->prompt[i] == '|')
         {
-            flag = i;
-
+        newstr[j] = ' ';
+        j++;
+        newstr[j] = '|';
+        j++;
+        newstr[j] = ' ';
         }
+        else
+            newstr[j] = data->prompt[i];
+        j++;
+        i++;
     }
+    printf("newstr = %s\n", newstr);
+    return (newstr);
 }
 
 int     ft_count(char *str)

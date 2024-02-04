@@ -60,4 +60,5 @@ void    ft_pwd(t_data *data);
 //token.c
 char    **ft_parse(t_data *data);
 int     ft_count(char *str);
+char    *ft_expend(t_data *data);
 #endif
