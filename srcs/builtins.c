@@ -1,5 +1,6 @@
 #include "../include/minishell.h"
 
+//Display the environment
 void    ft_env(t_data *data)
 {
     int i = 0;
@@ -27,6 +28,7 @@ int     check_env(char *prompt)
     return (0);
 }
 
+//Exit minishell and call the janitor
 void    ft_exit(t_data *data)
 {
     if (check_exit(data->prompt) == 1)

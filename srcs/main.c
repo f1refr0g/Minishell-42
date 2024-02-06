@@ -28,7 +28,7 @@ int	main(int ac, char **av, char **env)
 		// printf("count = %d\n", ft_count(data.prompt));
 
 		if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
-			printf("Invalid quote\n");
+			printf(QUOTE_ERROR);
 		ft_pwd(&data);
 		ft_env(&data);
 		ft_exit(&data);	// free(data.prompt);					// Free the char *

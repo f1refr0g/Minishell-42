@@ -1,5 +1,6 @@
 #include "../include/minishell.h"
 
+//Display the current path
 void    ft_pwd(t_data *data)
 {
     char    pwd[PATH_MAX];
@@ -13,6 +14,7 @@ void    ft_pwd(t_data *data)
     }
 }
 
+//TEST FUNCTION TO SEE IF PWD WORK (REMOVE WHEN EXECUTION IS DONE)
 int     check_pwd(char *prompt)
 {
     char *pwd;

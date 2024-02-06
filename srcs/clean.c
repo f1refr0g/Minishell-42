@@ -1,5 +1,6 @@
 #include "../include/minishell.h"
 
+//Janitor function that free any allocated memory
 void    ft_clean(t_data *data)
 {
     if (data->env != NULL)

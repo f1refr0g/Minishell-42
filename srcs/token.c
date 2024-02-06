@@ -1,5 +1,6 @@
 #include "../include/minishell.h" 
 
+//Split the user input on SPACE char and return the allocated array
 char    **ft_parse(t_data *data)
 {
     int i;
@@ -14,6 +15,7 @@ char    **ft_parse(t_data *data)
 }
 
 //NE PAS POUBLIER LE DOLLAR SIGNE DANS MALLOC
+//Add a space before and after each redirection
 char    *ft_expend(t_data *data)
 {
     int i;
@@ -88,6 +90,7 @@ char    *ft_expend(t_data *data)
     return (newstr);
 }
 
+//Count the number of redirection (times 2) for ft_expend
 int     ft_count(char *str)
 {
     int i;

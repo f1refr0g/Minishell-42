@@ -31,6 +31,7 @@ bool    valid_quote(char *str, int len, int quote)
     return (false);
 }
 
+//Check if input contain a dollars sign
 bool    contain_cash(char *str)
 {
     int i;
