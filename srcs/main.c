@@ -18,8 +18,6 @@ int	main(int ac, char **av, char **env)
 	{
 		data.prompt = readline("Minishell > ");	// Get User input inside char *input
 		data.len = ft_strlen(data.prompt);
-		if (contain_quote(data.prompt, data.len - 1, QUOTE))
-			printf("Error quote \n");
 		if (data.array)
 			ft_free_array(data.array);
 		data.array = ft_parse(&data);
@@ -33,10 +31,14 @@ int	main(int ac, char **av, char **env)
 		// 	printf("%s\n", data.env[i]);
 		// 	i++;
 		// }
+		if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
+			printf("Invalid quote\n");
+		else
+		{
 		ft_pwd(&data);
 		ft_env(&data);
 		ft_exit(&data);	// free(data.prompt);					// Free the char *
-	
+		}
 		// data.state++;
 
 	}

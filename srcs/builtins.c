@@ -14,33 +14,16 @@ void    ft_env(t_data *data)
     }
 }
 
+//TEST FUNCTION FOR ENV EXEC(REMOVE WHEN EXEC IS DONE)
 int     check_env(char *prompt)
 {
-    int i;
-    int y;
+
     char *env;
 
-    i = 0;
-    y = 0;
     env = "env";
-
-    while (prompt[i] != '\0')
-    {
-        y = 0;
-        if (prompt[i] == env[y])
-        {
-            while (env[y] != '\0')
-            {
-                if (prompt[i] != env[y])
-                    break;
-                i++;
-                y++;
-            }
-            if (env[y] == '\0')
-                return (1);
-        }
-        i++;
-    }
+    if (ft_strlen(prompt) == ft_strlen(env))
+        if (ft_strncmp(prompt, env, 3) == 0)
+            return (1);
     return (0);
 }
 
@@ -53,32 +36,14 @@ void    ft_exit(t_data *data)
     }
 }
 
+//FONCTION POUR TEST BUILTIN EXIT(REMOVE WHEN EXEC IS DONE)
 int     check_exit(char *prompt)
 {
-    int i;
-    int y;
     char *exit;
 
-    i = 0;
-    y = 0;
     exit = "exit";
-
-    while (prompt[i] != '\0')
-    {
-        y = 0;
-        if (prompt[i] == exit[y])
-        {
-            while (exit[y] != '\0')
-            {
-                if (prompt[i] != exit[y])
-                    break;
-                i++;
-                y++;
-            }
-            if (exit[y] == '\0')
-                return (1);
-        }
-        i++;
-    }
+    if (ft_strlen(prompt) == ft_strlen(exit))
+        if (ft_strncmp(prompt, exit, 4) == 0)
+            return (1);
     return (0);
 }

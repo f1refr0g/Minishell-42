@@ -68,6 +68,6 @@ int     ft_count(char *str);
 char    *ft_expend(t_data *data);
 
 //quote.c
-bool    contain_quote(char *str, int len, int quote);
+bool    valid_quote(char *str, int len, int quote);
 bool    contain_cash(char *str);
 #endif

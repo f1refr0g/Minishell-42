@@ -1,6 +1,7 @@
 #include "../include/minishell.h"
 
-bool    contain_quote(char *str, int len, int quote)
+//Return true if is in quote and all quote are closed properly
+bool    valid_quote(char *str, int len, int quote)
 {
     bool    single_quote;
     bool    double_quote;
@@ -15,16 +16,18 @@ bool    contain_quote(char *str, int len, int quote)
     {
         if (str[i] == '\"' && !single_quote)
             double_quote = !double_quote;
-        if (str[i] == '\'' && !double_quote)
+        else if (str[i] == '\'' && !double_quote)
             single_quote = !single_quote;
     i++;
     }
+    printf("test1\n");
     if (quote == QUOTE && (single_quote || double_quote))
         return (true);
     else if (quote == SINGLE_QUOTE && single_quote)
         return (true);
     else if (quote == DOUBLE_QUOTE && double_quote)
         return (true);
+    printf("test2\n");
     return (false);
 }
 
