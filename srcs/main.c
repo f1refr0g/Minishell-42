@@ -20,8 +20,8 @@ int	main(int ac, char **av, char **env)
 		data.len = ft_strlen(data.prompt);
 		if (contain_quote(data.prompt, data.len - 1, QUOTE))
 			printf("Error quote \n");
-		// ft_parse(&data);
-		// ft_expend(&data);
+		ft_parse(&data);
+		ft_expend(&data);
 
 		// printf("count = %d\n", ft_count(data.prompt));
 

@@ -35,6 +35,50 @@ char    *ft_expend(t_data *data)
         j++;
         newstr[j] = ' ';
         }
+        else if (data->prompt[i] == '>')
+        {
+            if (data->prompt[i + 1] != '>')
+            {
+            newstr[j] = ' ';
+            j++;
+            newstr[j] = '>';
+            j++;
+            newstr[j] = ' ';
+            }
+            else if (data->prompt[i + 1] == '>')
+            {
+            newstr[j] = ' ';
+            j++;
+            newstr[j] = '>';
+            j++;
+            newstr[j] = '>';
+            j++;
+            newstr[j] = ' ';
+            i += 1;
+            }
+        }
+        else if (data->prompt[i] == '<')
+        {
+            if (data->prompt[i + 1] != '<')
+            {
+            newstr[j] = ' ';
+            j++;
+            newstr[j] = '<';
+            j++;
+            newstr[j] = ' ';
+            }
+            else if (data->prompt[i + 1] == '<')
+            {
+            newstr[j] = ' ';
+            j++;
+            newstr[j] = '<';
+            j++;
+            newstr[j] = '<';
+            j++;
+            newstr[j] = ' ';
+            i += 1;
+            }
+        }
         else
             newstr[j] = data->prompt[i];
         j++;
