@@ -18,6 +18,10 @@
 //ERROR MESSAGE
 # define MALLOC_ERROR "Error : Memory allocation\n"
 
+//Quote handling
+# define QUOTE 0
+# define SINGLE_QUOTE 1
+# define DOUBLE_QUOTE 2
 
 
 
@@ -61,4 +65,8 @@ void    ft_pwd(t_data *data);
 char    **ft_parse(t_data *data);
 int     ft_count(char *str);
 char    *ft_expend(t_data *data);
+
+//quote.c
+bool    contain_quote(char *str, int len, int quote);
+bool    contain_cash(char *str);
 #endif

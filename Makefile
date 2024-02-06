@@ -13,6 +13,7 @@ FILES :=	main.c\
 			builtins2.c\
 			clean.c\
 			token.c\
+			quote.c\
 			
 SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
