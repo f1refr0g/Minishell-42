@@ -7,8 +7,8 @@ char    **ft_parse(t_data *data)
 
     i = -1;
     tab = ft_split(data->prompt, 32);
-    // while(tab[i++])
-    //     printf("line %d - %s\n", i, tab[i]);
+    while(tab[i++])
+        printf("line %d - %s\n", i, tab[i]);
 
     return (tab);
 }

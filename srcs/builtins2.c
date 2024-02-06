@@ -35,7 +35,8 @@ int     check_pwd(char *prompt)
                 i++;
                 y++;
             }
-            return (1);
+            if (pwd[y] == '\0')
+                return (1);
         }
         i++;
     }

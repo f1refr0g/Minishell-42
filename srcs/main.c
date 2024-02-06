@@ -20,7 +20,9 @@ int	main(int ac, char **av, char **env)
 		data.len = ft_strlen(data.prompt);
 		if (contain_quote(data.prompt, data.len - 1, QUOTE))
 			printf("Error quote \n");
-		ft_parse(&data);
+		if (data.array)
+			ft_free_array(data.array);
+		data.array = ft_parse(&data);
 		ft_expend(&data);
 
 		// printf("count = %d\n", ft_count(data.prompt));
@@ -33,7 +35,7 @@ int	main(int ac, char **av, char **env)
 		// }
 		ft_pwd(&data);
 		ft_env(&data);
-		// ft_exit(&data);	// free(data.prompt);					// Free the char *
+		ft_exit(&data);	// free(data.prompt);					// Free the char *
 	
 		// data.state++;
 

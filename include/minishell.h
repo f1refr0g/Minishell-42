@@ -29,6 +29,7 @@ typedef struct s_data
 {
     char             **env;
     char             *prompt;
+    char             **array;
     int                 len;
     int                 nlen;
 
