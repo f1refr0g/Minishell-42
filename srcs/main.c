@@ -21,24 +21,18 @@ int	main(int ac, char **av, char **env)
 		if (data.array)
 			ft_free_array(data.array);
 		data.array = ft_parse(&data);
-		ft_expend(&data);
+		if (data.expended)
+			free(data.expended);
+		data.expended = ft_expend(&data);
 
 		// printf("count = %d\n", ft_count(data.prompt));
 
-		// Do something
-		// while (data.env[i])
-		// {
-		// 	printf("%s\n", data.env[i]);
-		// 	i++;
-		// }
 		if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
 			printf("Invalid quote\n");
-		else
-		{
 		ft_pwd(&data);
 		ft_env(&data);
 		ft_exit(&data);	// free(data.prompt);					// Free the char *
-		}
+
 		// data.state++;
 
 	}

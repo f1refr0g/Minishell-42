@@ -30,6 +30,7 @@ typedef struct s_data
     char             **env;
     char             *prompt;
     char             **array;
+    char             *expended;
     int                 len;
     int                 nlen;
 
