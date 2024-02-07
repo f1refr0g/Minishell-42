@@ -78,4 +78,9 @@ char    *ft_expend(t_data *data);
 
 bool    valid_quote(char *str, int len, int quote);
 bool    contain_cash(char *str);
+
+//execution.c
+
+char	*get_command_path(char *argv, char **envp);
+void	get_command(char **argv, char **envp, int argval);
 #endif

@@ -20,14 +20,12 @@ bool    valid_quote(char *str, int len, int quote)
             single_quote = !single_quote;
     i++;
     }
-    printf("test1\n");
     if (quote == QUOTE && (single_quote || double_quote))
         return (true);
     else if (quote == SINGLE_QUOTE && single_quote)
         return (true);
     else if (quote == DOUBLE_QUOTE && double_quote)
         return (true);
-    printf("test2\n");
     return (false);
 }
 
