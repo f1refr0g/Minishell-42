@@ -1,1 +1,47 @@
 Remalloc pour ajouter des var etc etc
+If builtin, else execve
+
+Ordre de dannnn
+
+1 - Copier environnemenmt
+2 - active les signal ( fin )
+3 - lire le buffer (input)
+4 - parse
+    integriter du buffer;
+    regarde si seulement des espace
+    closed quote
+    pipe coller
+    token vide
+5 - Compter nombre de token (redirection etc) et faire le tableau (malloc combien de cmd array)
+    Trimtoken
+    fabriquer un table (underscore, no space pour verifier la trim)
+6- Heredoc
+    Creer fichier (toute calisser dedans)
+    trim une fleche de la redirection >>
+    pour quil devienne une normale redirection normale
+7-desactiver les signal
+8-dup1 (save le prompt du debut)
+9-Verification de si 1 ou plusieur commande
+
+    une commande = solo execute
+        trouve redirection
+        rouve les fichier(fd) et faire les dup2
+            expand variable($ juste avant les builtin)
+        si c'est un builtin on le fait
+        sinon fork (deja fait)
+            get_path et execute
+            si execute marche pas command not found
+
+
+    Plusieur commande = Faire un sous shell (ex : cd)
+        utiliser un fork, chaque commande est un autre processus
+        (BONUS PIPEX)
+                si sous shell on call une fork
+                (une boucle qui va encoyer chaque tableau qui va execute tout les commande)
+            pipe(fd)
+            fork()
+            closed fd 0
+            dup2 fd 1
+            trouver redirection (expend var$)
+            builtin else execve       
+    

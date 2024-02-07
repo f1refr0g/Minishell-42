@@ -27,30 +27,31 @@ char	*get_command_path(char *argv, char **envp)
 
 void	get_command(char **argv, char **envp, int argval)
 {
-	char	**cmd;
+	// char	**cmd;
 	char	*cmd_path;
 	int		i;
     pid_t    id;
 
 	i = 0;
-	cmd = ft_split(argv[argval], 32);
-	cmd_path = get_command_path(cmd[0], envp);
-	if (!cmd_path)
-	{
-		while (cmd[i++])
-			free(cmd[i]);
-		// exit_error("path error");
-	}
-	if (!cmd_path)
-	{
-		free(cmd_path);
-		ft_free_array(cmd);
-		// exit_error("Commmand or Command path not found");
-	}
+    (void)argval;
+	// cmd = ft_split(argv[argval], 32);
+	cmd_path = get_command_path(argv[0], envp);
+	// if (!cmd_path)
+	// {
+	// 	while (cmd[i++])
+	// 		free(cmd[i]);
+	// 	// exit_error("path error");
+	// }
+	// if (!cmd_path)
+	// {
+	// 	free(cmd_path);
+	// 	// ft_free_array(cmd);
+	// 	// exit_error("Commmand or Command path not found");
+	// }
 
     id = fork();
     if (id == 0)
-	    execve(cmd_path, cmd, envp);
+	    execve(cmd_path, argv, envp);
     waitpid(id, NULL, 0);
 	if (i == -1)
         ft_error("execve error\n");

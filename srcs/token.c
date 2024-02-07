@@ -86,7 +86,7 @@ char    *ft_expend(t_data *data)
         j++;
         i++;
     }
-    // printf("newstr = %s\n", newstr);
+    printf("newstr = %s\n", newstr);
     return (newstr);
 }
 
