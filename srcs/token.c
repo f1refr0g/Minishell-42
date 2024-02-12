@@ -24,9 +24,14 @@ char    *ft_expend(t_data *data)
 
     i = 0;
     j = 0;
+
     newstr = malloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1));
     if (!newstr)
+    {
+        free(newstr);
         ft_error(MALLOC_ERROR);
+    }
+
     while (data->prompt[i] != '\0')
     {
         if (data->prompt[i] == '|')

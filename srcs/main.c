@@ -22,6 +22,7 @@ int	main(int ac, char **av, char **env)
 			ft_free_array(data.array);
 		data.array = ft_parse(&data);
 
+	//GET COMMAND IS EXITING ON NULL
 		get_command(data.array, data.env, 0);
 
 		if (data.expended)

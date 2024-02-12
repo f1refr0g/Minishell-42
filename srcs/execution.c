@@ -8,13 +8,18 @@ char	*get_command_path(char *argv, char **envp)
 	int		i;
 
 	i = 0;
+	if (!argv)
+		return NULL;
 	while (ft_strnstr(envp[i], "PATH", 4) == 0)
 		i++;
 	path_list = ft_split(envp[i], ':');
 	i = 0;
+
 	while (path_list[i])
 	{
 		splitted_path = ft_strjoin(path_list[i++], "/");
+		if (!splitted_path)
+			return NULL;
 		pat = ft_strjoin(splitted_path, argv);
 		free(splitted_path);
 		if (access(pat, F_OK) == 0)
@@ -42,12 +47,13 @@ void	get_command(char **argv, char **envp, int argval)
 	// 		free(cmd[i]);
 	// 	// exit_error("path error");
 	// }
-	// if (!cmd_path)
-	// {
-	// 	free(cmd_path);
-	// 	// ft_free_array(cmd);
-	// 	// exit_error("Commmand or Command path not found");
-	// }
+	if (!cmd_path)
+	{
+		// free(cmd_path);
+		return ;
+		// ft_free_array(cmd);
+		// exit_error("Commmand or Command path not found");
+	}
 
     id = fork();
     if (id == 0)

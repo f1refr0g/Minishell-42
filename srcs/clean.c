@@ -11,6 +11,6 @@ void    ft_clean(t_data *data)
     {
         ft_free_array(data->array);
     }
-    if (data->expended != NULL)
-        free(data->expended);
+//     if (data->expended != NULL)
+//         free(data->expended);
 }
