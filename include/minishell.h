@@ -73,6 +73,7 @@ void    ft_pwd(t_data *data);
 char    **ft_parse(t_data *data);
 int     ft_count(char *str);
 char    *ft_expend(t_data *data);
+char    ***ft_commandarray(t_data *data);
 
 //quote.c
 

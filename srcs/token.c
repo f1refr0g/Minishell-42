@@ -1,5 +1,41 @@
 #include "../include/minishell.h" 
 
+static void print_cmd_array(char ***cmd_array) {
+    for (int i = 0; cmd_array[i] != NULL; i++) {
+        printf("Command %d:\n", i);
+        for (int j = 0; cmd_array[i][j] != NULL; j++) {
+            printf("  Argument %d: %s\n", j, cmd_array[i][j]);
+        }
+    }
+}
+
+char    ***ft_commandarray(t_data *data)
+{
+    char    ***cmd_array;
+    char    **splited_pipe;
+    int     count;
+    int     i;
+
+    count = 1;
+    i = 0;
+    splited_pipe = ft_split(data->prompt, '|');
+    while (splited_pipe[count] != NULL)
+        count++;
+    cmd_array = malloc(count * sizeof(char **));
+    if (cmd_array == NULL)
+            printf(MALLOC_ERROR);
+    while (i < count)
+    {
+        cmd_array[i] = ft_split(splited_pipe[i], 32);
+        i++;
+    }
+    cmd_array[i] = NULL;
+    print_cmd_array(cmd_array);
+    return (cmd_array);
+    
+
+}
+
 //Split the user input on SPACE char and return the allocated array
 char    **ft_parse(t_data *data)
 {
@@ -8,8 +44,8 @@ char    **ft_parse(t_data *data)
 
     i = -1;
     tab = ft_split(data->prompt, 32);
-    // while(tab[i++])
-    //     printf("line %d - %s\n", i, tab[i]);
+    while(tab[i++])
+        printf("line %d - %s\n", i, tab[i]);
 
     return (tab);
 }
@@ -97,7 +133,7 @@ char    *ft_expend(t_data *data)
         j++;
         i++;
     }
-    printf("newstr = %s\n", newstr);
+    // printf("newstr = %s\n", newstr);
     return (newstr);
 }
 

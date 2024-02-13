@@ -45,3 +45,6 @@ Ordre de dannnn
             trouver redirection (expend var$)
             builtin else execve       
     
+
+    Demander explication sur trim_token et str_tok.
+    Ainsi que sur les ***array (liste de tableau de commande lorsque on split sur le | pour envoyer les tableau a execve)
