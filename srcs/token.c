@@ -8,8 +8,8 @@ char    **ft_parse(t_data *data)
 
     i = -1;
     tab = ft_split(data->prompt, 32);
-    while(tab[i++])
-        printf("line %d - %s\n", i, tab[i]);
+    // while(tab[i++])
+    //     printf("line %d - %s\n", i, tab[i]);
 
     return (tab);
 }
@@ -25,10 +25,11 @@ char    *ft_expend(t_data *data)
     i = 0;
     j = 0;
 
-    newstr = ft_calloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1), 1);
+    newstr = ft_calloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1), 100);
     if (!newstr)
     {
         free(newstr);
+        // return NULL;
         ft_error(MALLOC_ERROR);
     }
 
@@ -36,11 +37,6 @@ char    *ft_expend(t_data *data)
     {
         if (data->prompt[i] == '|')
         {
-            // if (data->prompt[i + 1] == '|' && valid_quote(data->prompt, data->len, QUOTE) == 0)
-            // {
-            //     printf("Invalid syntax error '||' \n");
-            //     break ;
-            // }
         newstr[j] = ' ';
         j++;
         newstr[j] = '|';

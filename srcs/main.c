@@ -22,11 +22,11 @@ int	main(int ac, char **av, char **env)
 			data.len = ft_strlen(data.prompt);
 			if (data.array)
 				ft_free_array(data.array);
-
 			data.array = ft_parse(&data);
 
 	//GET COMMAND IS EXITING ON NULL
-			get_command(data.array, data.env, 0);
+			if (data.array)
+				get_command(data.array, data.env, 0);
 
 			if (data.expended)
 				free(data.expended);
@@ -36,7 +36,6 @@ int	main(int ac, char **av, char **env)
 
 			if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
 				printf(QUOTE_ERROR);
-			printf("1\n");
 			ft_pwd(&data);
 			ft_env(&data);
 			ft_exit(&data);	// free(data.prompt);					// Free the char *

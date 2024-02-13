@@ -21,6 +21,7 @@ char	*get_command_path(char *argv, char **envp)
 		if (!splitted_path)
 			return NULL;
 		pat = ft_strjoin(splitted_path, argv);
+
 		free(splitted_path);
 		if (access(pat, F_OK) == 0)
 			return (pat);
@@ -51,11 +52,10 @@ void	get_command(char **argv, char **envp, int argval)
 	{
 		// free(cmd_path);
 		printf("Command not found\n");
-		return ;
+		// return ;
 		// ft_free_array(cmd);
 		// exit_error("Commmand or Command path not found");
 	}
-
     id = fork();
     if (id == 0)
 	    execve(cmd_path, argv, envp);
