@@ -25,7 +25,7 @@ char    *ft_expend(t_data *data)
     i = 0;
     j = 0;
 
-    newstr = malloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1));
+    newstr = ft_calloc(sizeof(ft_strlen(data->prompt) + ft_count(data->prompt) + 1), 1);
     if (!newstr)
     {
         free(newstr);
@@ -36,6 +36,11 @@ char    *ft_expend(t_data *data)
     {
         if (data->prompt[i] == '|')
         {
+            // if (data->prompt[i + 1] == '|' && valid_quote(data->prompt, data->len, QUOTE) == 0)
+            // {
+            //     printf("Invalid syntax error '||' \n");
+            //     break ;
+            // }
         newstr[j] = ' ';
         j++;
         newstr[j] = '|';

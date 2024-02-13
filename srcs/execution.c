@@ -50,6 +50,7 @@ void	get_command(char **argv, char **envp, int argval)
 	if (!cmd_path)
 	{
 		// free(cmd_path);
+		printf("Command not found\n");
 		return ;
 		// ft_free_array(cmd);
 		// exit_error("Commmand or Command path not found");

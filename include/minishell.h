@@ -83,4 +83,7 @@ bool    contain_cash(char *str);
 
 char	*get_command_path(char *argv, char **envp);
 void	get_command(char **argv, char **envp, int argval);
+
+//utils.c
+int     ft_isonlyspace(char *prompt);
 #endif
