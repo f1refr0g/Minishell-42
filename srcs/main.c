@@ -24,7 +24,8 @@ int	main(int ac, char **av, char **env)
 			// 	ft_free_array(data.array);
 			// data.array = ft_parse(&data);
 
-			ft_commandarray(&data);
+			data.cmd_array = ft_commandarray(&data);
+			print_cmd_array(data.cmd_array);
 
 	//GET COMMAND IS EXITING ON NULL
 			if (data.array)

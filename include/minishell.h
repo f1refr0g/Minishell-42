@@ -31,6 +31,7 @@
 typedef struct s_data 
 {
     char             **env;
+    char             ***cmd_array;
     char             *prompt;
     char             **array;
     char             *expended;
@@ -87,4 +88,7 @@ void	get_command(char **argv, char **envp, int argval);
 
 //utils.c
 int     ft_isonlyspace(char *prompt);
+
+//REMOVE BEFORE PUSH
+void print_cmd_array(char ***cmd_array);
 #endif
