@@ -39,7 +39,7 @@ int	main(int ac, char **av, char **env)
 
 			if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
 				printf(QUOTE_ERROR);
-			// ft_pwd(&data);
+			ft_pwd(&data);
 			ft_env(&data);
 			ft_exit(&data);	// free(data.prompt);					// Free the char *
 

@@ -68,6 +68,8 @@ int     check_env(char *prompt);
 
 int     check_pwd(char *prompt);
 void    ft_pwd(t_data *data);
+void    ft_cd(t_data *data);
+int     check_cd(char *prompt);
 
 //token.c
 
