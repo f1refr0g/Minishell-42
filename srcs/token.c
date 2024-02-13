@@ -37,6 +37,11 @@ char    *ft_expend(t_data *data)
     {
         if (data->prompt[i] == '|')
         {
+            if (data->prompt[i + 1] == '|' && valid_quote(data->prompt, i + 1, QUOTE) == 0)
+            {
+                printf("Invalid syntax near token '||'\n");
+                break ;
+            }
         newstr[j] = ' ';
         j++;
         newstr[j] = '|';
