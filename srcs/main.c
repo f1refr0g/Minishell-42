@@ -19,7 +19,7 @@ int	main(int ac, char **av, char **env)
 		data.prompt = readline("Minishell > ");	// Get User input inside char *input
 		if (ft_isonlyspace(data.prompt) == 0)
 		{
-			data.len = ft_strlen(data.prompt);
+			// data.len = ft_strlen(data.prompt);
 			// if (data.array)
 			// 	ft_free_array(data.array);
 			// data.array = ft_parse(&data);

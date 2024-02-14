@@ -92,5 +92,8 @@ void	get_command(char **argv, char **envp, int argval);
 int     ft_isonlyspace(char *prompt);
 
 //REMOVE BEFORE PUSH
-void print_cmd_array(char ***cmd_array);
+void    print_cmd_array(char ***cmd_array);
+
+//strtok.c
+char	**ft_tok(char *src, char sep);
 #endif

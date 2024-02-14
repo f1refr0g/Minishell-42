@@ -6,7 +6,7 @@ void print_cmd_array(char ***cmd_array)
     for (int i = 0; cmd_array[i] != NULL; i++) {
         printf("Command %d:\n", i);
         for (int j = 0; cmd_array[i][j] != NULL; j++) {
-            printf("  Argument %d: %s\n", j, cmd_array[i][j]);
+            printf("  Argument %d: |%s|\n", j, cmd_array[i][j]);
         }
         printf("____________________\n");
     }
@@ -21,16 +21,17 @@ char    ***ft_commandarray(t_data *data)
 
     count = 0;
     i = 0;
-    splited_pipe = ft_split(data->prompt, '|');
+    splited_pipe = ft_tok(data->prompt, '|');
     while (splited_pipe[count] != NULL)
         count++;
+
     cmd_array = malloc((count + 1) * sizeof(char **));
     if (cmd_array == NULL)
             printf(MALLOC_ERROR);
     
     while (i < count)
     {
-        cmd_array[i] = ft_split(splited_pipe[i], 32);
+        cmd_array[i] = ft_tok(splited_pipe[i], 32);
         i++;
     }
     cmd_array[i] = NULL;
