@@ -48,7 +48,7 @@ char	**ft_tok(char *s, char c)
     int     qpos;
 	char	**split;
 
-    printf("\n\n Splitted with %c and string %s\n\n\n", c, s);
+    // printf("\n\n Splitted with %c and string %s\n\n\n", c, s);
 
 	if (!s)
 		return (0);
@@ -75,7 +75,7 @@ char	**ft_tok(char *s, char c)
 		{
             // if (i != ft_strlen(s))
 			    split[j++] = word_up(s, ind, i);
-            printf("S[i] : |%s|\n", &s[i]);
+            // printf("S[i] : |%s|\n", &s[i]);
             // printf("\nj = %zu\n", j);
 			ind = -1;
 		}

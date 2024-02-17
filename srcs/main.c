@@ -28,12 +28,12 @@ int	main(int ac, char **av, char **env)
 			print_cmd_array(data.cmd_array);
 
 	//GET COMMAND IS EXITING ON NULL
-			if (data.array)
-				get_command(data.array, data.env, 0);
+			// if (data.array)
+			// 	get_command(data.array, data.env, 0);
 
-			if (data.expended)
-				free(data.expended);
-			data.expended = ft_expend(&data);
+			// if (data.expended)
+			// 	free(data.expended);
+			// data.expended = ft_expend(&data);
 
 		// printf("count = %d\n", ft_count(data.prompt));
 

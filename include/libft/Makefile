@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+         #
+#    By: olivierd.st-cyr <olivierd.st-cyr@studen    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/21 11:17:32 by abeaudet          #+#    #+#              #
-#    Updated: 2023/05/28 11:59:03 by abeaudet         ###   ########.fr        #
+#    Updated: 2024/02/17 12:00:33 by olivierd.st      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,7 @@ SRCS =  ft_atoi.c \
 		ft_isint.c\
 		ft_atoil.c\
 		ft_intoverflow.c\
+		ft_splitdoc.c\
 		
 		
 OBJS = $(SRCS:.c=.o)

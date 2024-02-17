@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
+/*   By: olivierd.st-cyr <olivierd.st-cyr@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 17:05:05 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/07/09 13:05:14 by abeaudet         ###   ########.fr       */
+/*   Updated: 2024/02/17 12:05:17 by olivierd.st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ int		ft_digit(char c);
 int		ft_isint(int nb);
 long	int	ft_atoil(const char *str);
 int		ft_intoverflow(long int nbr);
+char	**ft_splitdoc(char const *s, char c);
 
 #endif

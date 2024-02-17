@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ptr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
+/*   By: olivierd.st-cyr <olivierd.st-cyr@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:08:17 by abeaudet          #+#    #+#             */
-/*   Updated: 2023/06/26 18:03:58 by abeaudet         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:23:26 by olivierd.st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ int	ft_pointlen(unsigned long int nbr)
 /* ne pas oublier de recall 0 pour la 1er apelle */
 int	ft_ptr(unsigned long int nbr, int recall)
 {
-	int	i;
-
-	i = 0;
 	if (recall == 0)
 	{
 		ft_typestring("0x");

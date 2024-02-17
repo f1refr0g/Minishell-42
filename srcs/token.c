@@ -21,7 +21,7 @@ char    ***ft_commandarray(t_data *data)
 
     count = 0;
     i = 0;
-    splited_pipe = ft_tok(data->prompt, '|');
+    splited_pipe = ft_splitdoc(data->prompt, '|');
     while (splited_pipe[count] != NULL)
         count++;
 
@@ -31,14 +31,12 @@ char    ***ft_commandarray(t_data *data)
     
     while (i < count)
     {
-        cmd_array[i] = ft_tok(splited_pipe[i], 32);
+        cmd_array[i] = ft_splitdoc(splited_pipe[i], 32);
         i++;
     }
     cmd_array[i] = NULL;
     // print_cmd_array(cmd_array);
     return (cmd_array);
-    
-
 }
 
 //Split the user input on SPACE char and return the allocated array
