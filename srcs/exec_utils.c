@@ -54,7 +54,7 @@ void    ft_execute(t_data *data)
             if (i > 0)
             {
             close(fd[1]);
-            dup2(fd[0], STDOUT_FILENO);
+            dup2(fd[0], STDIN_FILENO);
             close(fd[0]);
             }
             if (data->cmd_array[i + 1] != NULL)
@@ -64,7 +64,7 @@ void    ft_execute(t_data *data)
                 close(fd[1]);
             }
             get_command(data->cmd_array[i], data->env, 1);
-            i++;
+            exit(EXIT_SUCCESS);
 
         }
         else
