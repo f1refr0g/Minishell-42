@@ -17,6 +17,7 @@ FILES :=	main.c\
 			execution.c\
 			utils.c\
 			strtok.c\
+			exec_utils.c\
 			
 SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs

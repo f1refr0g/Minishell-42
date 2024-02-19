@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "queue": "c",
-        "random": "c"
+        "random": "c",
+        "minishell.h": "c"
     }
 }

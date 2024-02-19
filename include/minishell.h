@@ -88,6 +88,12 @@ bool    contain_cash(char *str);
 char	*get_command_path(char *argv, char **envp);
 void	get_command(char **argv, char **envp, int argval);
 
+//exec utils.c
+
+void    ft_execute(t_data *data);
+void	parent(char **argv, char **envp, int *fd);
+void	child(char **argv, char **envp, int *fd);
+
 //utils.c
 int     ft_isonlyspace(char *prompt);
 

@@ -1,5 +1,6 @@
 #include "../include/minishell.h"
 
+
 char	*get_command_path(char *argv, char **envp)
 {
 	char	**path_list;
