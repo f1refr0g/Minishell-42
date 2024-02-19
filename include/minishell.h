@@ -71,6 +71,12 @@ void    ft_pwd(t_data *data);
 void    ft_cd(t_data *data);
 int     check_cd(char *prompt);
 
+//Built-in3.c
+
+void    ft_export(t_data *data, char **cmd);
+int     verify_double(t_data *data, char *cmd);
+void    ft_unset(t_data *data, char *cmd);
+
 //token.c
 
 char    **ft_parse(t_data *data);

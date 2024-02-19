@@ -51,7 +51,7 @@ void    ft_execute(t_data *data)
             printf("Erreur de fork\n");
         else if (pid == 0)
         {
-            if (i > 0)
+            if (i >= 0)
             {
             close(fd[1]);
             dup2(fd[0], STDIN_FILENO);

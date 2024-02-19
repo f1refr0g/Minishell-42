@@ -11,6 +11,7 @@ FILES :=	main.c\
 			init_minishell.c\
 			builtins.c\
 			builtins2.c\
+			builtins3.c\
 			clean.c\
 			token.c\
 			quote.c\
