@@ -1,35 +1,35 @@
 #include "../include/minishell.h"
 
-void	child(char **argv, char **envp, int *fd)
-{
-	int		file;
+// void	child(char **argv, char **envp, int *fd)
+// {
+// 	int		file;
 
-	file = open(argv[0], O_RDONLY, 0644);
-	if (file == -1)
-		exit_error("child infile invalid");
-	close(fd[0]);
-	dup2(fd[1], 1);
-	close(fd[1]);
-	dup2(file, 0);
-	get_command(argv, envp, 1);
-	close(file);
-	exit(1);
-}
+// 	file = open(argv[0], O_RDONLY, 0644);
+// 	if (file == -1)
+// 		exit_error("child infile invalid");
+// 	close(fd[0]);
+// 	dup2(fd[1], 1);
+// 	close(fd[1]);
+// 	dup2(file, 0);
+// 	get_command(argv, envp, 1);
+// 	close(file);
+// 	exit(1);
+// }
 
-void	parent(char **argv, char **envp, int *fd)
-{
-	int		file;
+// void	parent(char **argv, char **envp, int *fd)
+// {
+// 	int		file;
 
-	file = open(argv[3], O_WRONLY | O_CREAT | O_TRUNC, 0644);
-	if (file == -1)
-		exit_error("parent outfile invalid");
-	close(fd[1]);
-	dup2(fd[0], 0);
-	close(fd[0]);
-	dup2(file, 1);
-	get_command(argv, envp, 2);
-	close(file);
-}
+// 	file = open(argv[3], O_WRONLY | O_CREAT | O_TRUNC, 0644);
+// 	if (file == -1)
+// 		exit_error("parent outfile invalid");
+// 	close(fd[1]);
+// 	dup2(fd[0], 0);
+// 	close(fd[0]);
+// 	dup2(file, 1);
+// 	get_command(argv, envp, 2);
+// 	close(file);
+// }
 
 
 void    ft_execute(t_data *data)
