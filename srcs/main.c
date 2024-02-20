@@ -27,9 +27,8 @@ int	main(int ac, char **av, char **env)
 			data.cmd_array = ft_commandarray(&data);
 			print_cmd_array(data.cmd_array);
 
-	// GET COMMAND IS EXITING ON NULL
-			// if (data.cmd_array)
-			// 	ft_execute(&data);
+			if (data.cmd_array)
+				ft_execute(&data);
 
 			// if (data.expended)
 			// 	free(data.expended);
@@ -40,6 +39,7 @@ int	main(int ac, char **av, char **env)
 			if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
 				printf(QUOTE_ERROR);
 			ft_export(&data, data.cmd_array[0]);
+			ft_echo(data.cmd_array[0]);
 			ft_pwd(&data);
 			ft_env(&data);
 			ft_exit(&data);	// free(data.prompt);					// Free the char *

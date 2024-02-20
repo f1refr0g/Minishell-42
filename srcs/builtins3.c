@@ -61,3 +61,14 @@ void    ft_export(t_data *data, char **cmd)
         }
     }
 }
+
+void    ft_echo(char **cmd)
+{
+    if (ft_strncmp(cmd[0], "echo", 3) == 0)
+    {
+        if (ft_strncmp(cmd[1], "-n", 2) == 0)
+            ft_printf("%s", cmd[2]);
+        else
+            ft_printf("%s\n", cmd[1]);
+    }
+}

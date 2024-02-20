@@ -27,6 +27,7 @@ static char	*word_up(const char *str, int debut, int fin)
 	int		i;
 
 	i = 0;
+	printf("wordup = %s\n", str);
 	word = ft_calloc((fin - debut + 1),  sizeof(char));
 	if (!word)
 		return (0);

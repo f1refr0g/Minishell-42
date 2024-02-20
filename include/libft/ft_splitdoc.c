@@ -121,18 +121,25 @@ char	**ft_splitdoc(char const *s, char c)
 		return (NULL);
 	i = 0;
 	k = 0;
-	while (k < (ft_nomb_str(s, c)))
+	while (s[i] && k < (ft_nomb_str(s, c)))
 	{
 		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
 			last_pos = i;
+		if (s[i] == '\'' || s[i] == '\"')
+		{
+			i++;
+			while (s[i] != s[last_pos])
+				i++;
+		}
 		while (s[i] && s[i] != c)
 			i++;
 		tab[k] = ft_substrdoc(s, last_pos, (i - last_pos));
 		if (!tab[k])
 			return (ft_freedoc(tab));
 		k++;
+
 	}
 	return (tab);
 }

@@ -76,6 +76,7 @@ int     check_cd(char *prompt);
 void    ft_export(t_data *data, char **cmd);
 int     verify_double(t_data *data, char *cmd);
 void    ft_unset(t_data *data, char *cmd);
+void    ft_echo(char **cmd);
 
 //token.c
 
