@@ -79,6 +79,7 @@ static int	ft_nomb_str(const char *str, char c)
 {
 	size_t	i;
 	int		num;
+	int		save;
 
 	i = 0;
 	num = 0;
@@ -88,6 +89,13 @@ static int	ft_nomb_str(const char *str, char c)
 			i++;
 		if (str[i])
 			num++;
+		if (str[i] == '\'' || str[i] == '\"')
+		{
+			save = i;
+			i++;
+			while (str[save] != str[i])
+				i++;
+		}
 		while (str[i] != c && str[i])
 			i++;
 	}
