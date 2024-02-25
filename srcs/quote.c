@@ -80,7 +80,6 @@ char *ft_dollar_switch(char *str, t_data *data)
     ft_memmove(new_str, new_str + 1, ft_strlen(new_str));
 
   
-
     i = 0;
     while (data->env[i])
     {
