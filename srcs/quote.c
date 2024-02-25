@@ -44,42 +44,43 @@ bool    contain_cash(char *str)
     return (0);
 }
 
-// // Find the length of the $string if it ends with ' ' or '\0'
-// static int  ft_strchange(const char *str, const char *charset)
-// {
-//     int len;
-//     const char *ptr;
+// Find the length of the $string if it ends with ' ' or '\0'
+static int  ft_strchange(const char *str, const char *charset)
+{
+    int len;
+    const char *ptr;
 
-//     len = 0;
-//     ptr = str;
-//     while(*ptr != '\0' && ft_strchr(charset, *ptr) == NULL)
-//     {
-//         len++;
-//         ptr++;
-//     }
-//     return (len);
-// }
+    len = 0;
+    ptr = str;
+    while(*ptr != '\0' && ft_strchr(charset, *ptr) == NULL)
+    {
+        len++;
+        ptr++;
+    }
+    return (len);
+}
 
-// char *ft_dollar_switch(char *str)
-// {
-//     int     i;
-//     char    *ptr;
-//     char    *new_str;
-//     int     og_len;
+char *ft_dollar_switch(char *str)
+{
+    int     i;
+    char    *ptr;
+    // char    *new_str;
+    int     og_len;
 
-//     ptr = ft_strnstr(str, "$", ft_strlen(str));
-//     i = 0;
-//     while (str[i])
-//     {
-//         if (ptr != NULL)
-//         {
-//             og_len = ft_strchange(ptr, " \t\n");
+    ptr = ft_strnstr(str, "echo $", ft_strlen(str));
+    i = 0;
+    while (str[i])
+    {
+        if (ptr != NULL)
+        {
+            og_len = ft_strchange(ptr, " \t\n");
             
-//         }
-//         if(str[i] == '$')
-//         {
+        }
+        if(str[i] == '$')
+        {
 
-//         }
-//         i++;
-//     }
-// }
+        }
+        i++;
+    }
+    return (ptr);
+}

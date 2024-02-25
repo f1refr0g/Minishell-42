@@ -27,8 +27,8 @@ int	main(int ac, char **av, char **env)
 			data.cmd_array = ft_commandarray(&data);
 			print_cmd_array(data.cmd_array);
 
-			if (data.cmd_array)
-				ft_execute(&data);
+			// if (data.cmd_array)
+			// 	ft_execute(&data);
 
 			// if (data.expended)
 			// 	free(data.expended);

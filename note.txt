@@ -48,3 +48,8 @@ Ordre de dannnn
 
     Demander explication sur trim_token et str_tok.
     Ainsi que sur les ***array (liste de tableau de commande lorsque on split sur le | pour envoyer les tableau a execve)
+
+
+
+
+    https://github.com/zstenger93/minishell/blob/master/mindmap.png
