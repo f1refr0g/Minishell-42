@@ -45,42 +45,53 @@ bool    contain_cash(char *str)
 }
 
 // Find the length of the $string if it ends with ' ' or '\0'
-static int  ft_strchange(const char *str, const char *charset)
-{
-    int len;
-    const char *ptr;
+// static int  ft_strchange(const char *str, const char *charset)
+// {
+//     int len;
+//     const char *ptr;
 
-    len = 0;
-    ptr = str;
-    while(*ptr != '\0' && ft_strchr(charset, *ptr) == NULL)
-    {
-        len++;
-        ptr++;
-    }
-    return (len);
-}
+//     len = 0;
+//     ptr = str;
+//     while(*ptr != '\0' && ft_strchr(charset, *ptr) == NULL)
+//     {
+//         len++;
+//         ptr++;
+//     }
+//     return (len);
+// }
 
-char *ft_dollar_switch(char *str)
+//Function to return the value of the variable in the env
+
+
+//FIND THE $and return the trimmed variable name following it
+char *ft_dollar_switch(char *str, t_data *data)
 {
     int     i;
     char    *ptr;
-    // char    *new_str;
-    int     og_len;
+    char    *new_str;
+    char    **temp;
 
-    ptr = ft_strnstr(str, "echo $", ft_strlen(str));
+    (void)(data);
+    ptr = ft_strnstr(str, "$", ft_strlen(str));
+    temp = ft_split(ptr, ' ');
+    new_str = ft_calloc(1, ft_strlen(temp[0]));
+    ft_memcpy(new_str, temp[0], ft_strlen(temp[0]));
+    ft_free_array(temp);
+    ft_memmove(new_str, new_str + 1, ft_strlen(new_str));
+
+  
+
     i = 0;
-    while (str[i])
+    while (data->env[i])
     {
-        if (ptr != NULL)
+        if (ft_strncmp(data->env[i], new_str, ft_strlen(new_str)) == 0 && data->env[i][ft_strlen(new_str)] == '=')
         {
-            og_len = ft_strchange(ptr, " \t\n");
-            
-        }
-        if(str[i] == '$')
-        {
-
+            new_str = ft_strdup(&data->env[i][ft_strlen(new_str) + 1]);
+            return(new_str);                                       
         }
         i++;
-    }
-    return (ptr);
+    }       
+    printf("str: %s\n", new_str);
+    return ("a");
 }
+

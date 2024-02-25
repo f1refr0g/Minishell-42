@@ -89,6 +89,7 @@ char    ***ft_commandarray(t_data *data);
 
 bool    valid_quote(char *str, int len, int quote);
 bool    contain_cash(char *str);
+char    *ft_dollar_switch(char *str, t_data *data);
 
 //execution.c
 
