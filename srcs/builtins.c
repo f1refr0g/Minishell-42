@@ -1,51 +1,51 @@
 #include "../include/minishell.h"
 
 //Display the environment
-void    ft_env(t_data *data)
+void	ft_env(t_data *data)
 {
-    int i = 0;
+	int	i;
 
-    if (check_env(data->prompt) == 1)
-    {
-    while (data->env[i] != NULL)
-    {
-        printf("%s\n", data->env[i]);
-        i++;
-    }
-    }
+	i = 0;
+	if (check_env(data->prompt) == 1)
+	{
+		while (data->env[i] != NULL)
+		{
+			printf("%s\n", data->env[i]);
+			i++;
+		}
+	}
 }
 
 //TEST FUNCTION FOR ENV EXEC(REMOVE WHEN EXEC IS DONE)
-int     check_env(char *prompt)
+int	check_env(char *prompt)
 {
+	char	*env;
 
-    char *env;
-
-    env = "env";
-    if (ft_strlen(prompt) == ft_strlen(env))
-        if (ft_strncmp(prompt, env, 3) == 0)
-            return (1);
-    return (0);
+	env = "env";
+	if (ft_strlen(prompt) == ft_strlen(env))
+		if (ft_strncmp(prompt, env, 3) == 0)
+			return (1);
+	return (0);
 }
 
 //Exit minishell and call the janitor
-void    ft_exit(t_data *data)
+void	ft_exit(t_data *data)
 {
-    if (check_exit(data->prompt) == 1)
-    {
-        ft_clean(data);
-        exit (0);
-    }
+	if (check_exit(data->prompt) == 1)
+	{
+		ft_clean(data);
+		exit (0);
+	}
 }
 
 //FONCTION POUR TEST BUILTIN EXIT(REMOVE WHEN EXEC IS DONE)
-int     check_exit(char *prompt)
+int	check_exit(char *prompt)
 {
-    char *exit;
+	char	*exit;
 
-    exit = "exit";
-    if (ft_strlen(prompt) == ft_strlen(exit))
-        if (ft_strncmp(prompt, exit, 4) == 0)
-            return (1);
-    return (0);
+	exit = "exit";
+	if (ft_strlen(prompt) == ft_strlen(exit))
+		if (ft_strncmp(prompt, exit, 4) == 0)
+			return (1);
+	return (0);
 }

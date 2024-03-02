@@ -28,7 +28,7 @@ static char	*word_up(const char *str, int debut, int fin)
 
 	i = 0;
 	printf("wordup = %s\n", str);
-	word = ft_calloc((fin - debut + 1),  sizeof(char));
+	word = ft_calloc((fin - debut + 1), sizeof(char));
 	if (!word)
 		return (0);
 	while (debut < fin)
@@ -46,11 +46,10 @@ char	**ft_tok(char *s, char c)
 	size_t	i;
 	size_t	j;
 	int		ind;
-    int     qpos;
+	int		qpos;
 	char	**split;
 
-    // printf("\n\n Splitted with %c and string %s\n\n\n", c, s);
-
+	// printf("\n\n Splitted with %c and string %s\n\n\n", c, s);
 	if (!s)
 		return (0);
 	split = ft_calloc((ft_countwords(s, c) + 1), sizeof(char *));
@@ -59,30 +58,28 @@ char	**ft_tok(char *s, char c)
 	i = -1;
 	j = 0;
 	ind = -1;
-    qpos = 0;
+	qpos = 0;
 	while (++i <= ft_strlen(s))
 	{
 		if (s[i] != c && ind < 0)
 			ind = i;
-        if (s[i] == '\'' || s[i] == '\"')
-        {
-            qpos = i + 1;
-            while (s[qpos] && s[qpos] != s[i])
-                qpos++;
-        
-        i = qpos;
-        }
+		if (s[i] == '\'' || s[i] == '\"')
+		{
+			qpos = i + 1;
+			while (s[qpos] && s[qpos] != s[i])
+				qpos++;
+			i = qpos;
+		}
 		else if ((s[i] == c || i == ft_strlen(s)) && ind >= 0)
 		{
-            // if (i != ft_strlen(s))
-			    split[j++] = word_up(s, ind, i);
-            // printf("S[i] : |%s|\n", &s[i]);
-            // printf("\nj = %zu\n", j);
+			// if (i != ft_strlen(s))
+			split[j++] = word_up(s, ind, i);
+			// printf("S[i] : |%s|\n", &s[i]);
+			// printf("\nj = %zu\n", j);
 			ind = -1;
 		}
-        // printf("si : %s\n ", &s[i]);
+		// printf("si : %s\n ", &s[i]);
 	}
 	split[j] = NULL;
 	return (split);
 }
-
