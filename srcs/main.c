@@ -35,6 +35,7 @@ int	main(int ac, char **av, char **env)
 				printf(QUOTE_ERROR);
 			ft_export(&data, data.cmd_array[0]);
 			ft_echo(data.cmd_array[0]);
+
 			ft_pwd(&data);
 			ft_env(&data);
 			ft_exit(&data);	// free(data.prompt);					// Free the char *

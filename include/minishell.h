@@ -26,20 +26,29 @@
 # define SINGLE_QUOTE 1
 # define DOUBLE_QUOTE 2
 
-
+enum e_builtin
+{
+	E_CD,
+	E_UNSET,
+	E_EXPORT,
+	E_PWD,
+	E_ECHO,
+	E_ENV,
+	E_EXIT
+};
 
 typedef struct s_data 
 {
-    char             **env;
-    char             ***cmd_array;
-    char             *prompt;
-    char             **array;
-    char             *expended;
-    int                 len;
-    int                 nlen;
+	char             **env;
+	char             ***cmd_array;
+	char             *prompt;
+	char             **array;
+	char             *expended;
+	int                 len;
+	int                 nlen;
 
-    // struct termios  term;
-    int             state;
+	// struct termios  term;
+	int             state;
 	// int				exit_code;
 
 } t_data ;
