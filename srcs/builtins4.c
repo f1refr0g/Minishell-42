@@ -1,5 +1,8 @@
 #include "../include/minishell.h"
 
+//Manque a trouver comment faire le switch dans l'environnement
+//Jai changer pour un **cmdarray au lieu de d'une simple string
+//Le path va se retrouver a etre cans cmdarray[1] et cmdarray[0] va contenir cd
 void	ft_cd(t_data *data, char **cmdarray)
 {
 	char    *oldpwd;
@@ -20,7 +23,7 @@ void	ft_cd(t_data *data, char **cmdarray)
     {
         ft_unset(data,"OLDPWD");
         pwd = get_env_line("PWD", data);
-        
+
         ft_export(data, cmdarray);
 
     }
@@ -28,7 +31,7 @@ void	ft_cd(t_data *data, char **cmdarray)
 
 
 //Return the value of a variable in a environment (use for cd)
-//Think it is causing some minorleaks
+//Think it is causing segfault when the variable dont exist
 char    *get_env_line(char *var, t_data *data)
 {
     int i;
