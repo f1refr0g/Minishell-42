@@ -1,8 +1,6 @@
 #include "../include/minishell.h"
 
-//Manque a trouver comment faire le switch dans l'environnement
-//Jai changer pour un **cmdarray au lieu de d'une simple string
-//Le path va se retrouver a etre cans cmdarray[1] et cmdarray[0] va contenir cd
+//Fixer le probleme de cd seul, 
 void	ft_cd(t_data *data, char **cmdarray)
 {
 	char    *oldpwd;
@@ -11,17 +9,17 @@ void	ft_cd(t_data *data, char **cmdarray)
 
     if(check_cd(cmdarray[0]) == 1)
     {
-    newpwd = cmdarray[1];
-    oldpwd = getcwd(NULL, PATH_MAX);
+    // newpwd = cmdarray[1];
+    // oldpwd = getcwd(NULL, PATH_MAX);
 
     if (!cmdarray[1])
         newpwd = get_env_line("HOME", data);
 
-    if (!oldpwd)
-    {
-        printf("Error message\n");
-        return ;
-    }
+    // if (!oldpwd)
+    // {
+    //     printf("Error message\n");
+    //     return ;
+    // }
     if (cmdarray[1] && chdir(cmdarray[1]) == 0)
     {
         ft_unset(data,"OLDPWD");
