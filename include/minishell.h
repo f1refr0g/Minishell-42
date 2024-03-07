@@ -77,7 +77,6 @@ int     check_env(char *prompt);
 
 int     check_pwd(char *prompt);
 void    ft_pwd(t_data *data);
-void    ft_cd(t_data *data);
 int     check_cd(char *prompt);
 
 //Built-in3.c
@@ -89,6 +88,7 @@ void    ft_echo(char **cmd);
 
 //Builtins4.c
 char    *get_env_line(char *var, t_data *data);
+void    ft_cd(t_data *data, char **cmdarray);
 
 //token.c
 

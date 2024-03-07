@@ -2,11 +2,16 @@
 
 //Verifier pour les input du style cdexit etc
 //faire un strlen du input et du comparateur && ft_strlen dans le dispatcheur comme condition
-int	ft_dispatcher(char **tab)
+//ajouter t_data *data dans le call
+void	ft_dispatcher(t_data *data, char **tab)
 {
 	while (tab[0])
 	{
 		if (ft_strncmp(tab[0], "cd", 2 == 0))
+			ft_cd(data, tab[1]);
+
+
+
 			return (E_CD);
 		if (ft_strncmp(tab[0], "unset", 5) == 0)
 			return (E_UNSET);

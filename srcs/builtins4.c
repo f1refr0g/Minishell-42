@@ -9,6 +9,7 @@ void	ft_cd(t_data *data, char **cmdarray)
     char    *pwd;
     char    *newpwd;
 
+    newpwd = cmdarray[1];
     oldpwd = getcwd(NULL, PATH_MAX);
 
     if (!cmdarray[1])
@@ -37,7 +38,7 @@ char    *get_env_line(char *var, t_data *data)
     int i;
 
     i = 0;
-    while (data->env[i++]) 
+    while (data->env[i++])
     {
         if (ft_strncmp(data->env[i], var, ft_strlen(var)) == 0)
         {
@@ -48,6 +49,7 @@ char    *get_env_line(char *var, t_data *data)
         }
        i++; 
     }
+    write(2, "Minishell cd : HOME is not set\n", 31);
     return (NULL);
 
 }

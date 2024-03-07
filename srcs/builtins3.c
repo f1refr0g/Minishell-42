@@ -48,9 +48,9 @@ void	ft_export(t_data *data, char **cmd)
 	char	*str;
 
 	i = 0;
-	if (ft_strncmp(cmd[0], "export", 6) == 0)
+	// if (ft_strncmp(cmd[0], "export", 6) == 0)
 	{
-		if (ft_strchr(cmd[1], '='))
+		if (cmd[1] && ft_strchr(cmd[1], '='))
 		{
 			str = ft_substr(cmd[1], 0, ft_strchr(cmd[1], '=') - cmd[1]);
 			if (verify_double(data, str) == 1)
@@ -69,14 +69,17 @@ void	ft_echo(char **cmd)
 
 	i = 0;
 
+	printf ("123\n");
 	if (ft_strncmp(cmd[0], "echo", 3) == 0)
 	{
+		if (cmd[1] != NULL)
+		{
 		if (ft_strncmp(cmd[1], "-n", 2) == 0)
 		{
 			i = 2;
 			while (cmd[i])
 			{
-			ft_printf("%s", cmd[i]);
+			printf("%s", cmd[i]);
 			i++;
 			}
 		}
@@ -85,10 +88,11 @@ void	ft_echo(char **cmd)
 			i = 1;
 			while (cmd[i])
 			{
-			ft_printf("%s ", cmd[i]);
+			printf("%s ", cmd[i]);
 			i++;
 			}
-			ft_printf("\n");
+			printf("\n");
+		}
 		}
 	}
 }
