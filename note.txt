@@ -53,3 +53,6 @@ Ordre de dannnn
 
 
     https://github.com/zstenger93/minishell/blob/master/mindmap.png
+
+
+    https://github.com/nickdotht/minishell

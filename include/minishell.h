@@ -87,6 +87,9 @@ int     verify_double(t_data *data, char *cmd);
 void    ft_unset(t_data *data, char *cmd);
 void    ft_echo(char **cmd);
 
+//Builtins4.c
+char    *get_env_line(char *var, t_data *data);
+
 //token.c
 
 char    **ft_parse(t_data *data);
@@ -119,4 +122,5 @@ void    print_cmd_array(char ***cmd_array);
 
 //strtok.c
 char	**ft_tok(char *src, char sep);
+
 #endif

@@ -19,6 +19,7 @@ int	main(int ac, char **av, char **env)
 		if (ft_isonlyspace(data.prompt) == 0)
 		{
 			data.len = ft_strlen(data.prompt);
+			printf("test home variable = %s\n", get_env_line("HOME", &data));
 			// printf("str: %s\n", ft_dollar_switch(data.prompt, &data));
 			// if (data.array)
 			// 	ft_free_array(data.array);

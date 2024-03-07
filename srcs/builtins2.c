@@ -26,32 +26,32 @@ int	check_pwd(char *prompt)
 		return (0);
 }
 
-void	ft_cd(t_data *data)
-{
-	char	**path;
+// void	ft_cd(t_data *data)
+// {
+// 	char	**path;
 
-	path = ft_split(data->prompt, 32);
-	if (check_cd(data->prompt) == 1)
-	{
-		chdir(getenv("HOME"));
-	}
-	else
-	{
-		if (chdir(path[1]) != 0)
-		{
-			printf("ERROR DE PATH\n");
-		}
-	}
-	ft_free_array(path);
-}
+// 	path = ft_split(data->prompt, 32);
+// 	if (check_cd(data->prompt) == 1)
+// 	{
+// 		chdir(getenv("HOME"));
+// 	}
+// 	else
+// 	{
+// 		if (chdir(path[1]) != 0)
+// 		{
+// 			printf("ERROR DE PATH\n");
+// 		}
+// 	}
+// 	ft_free_array(path);
+// }
 
-int	check_cd(char *prompt)
-{
-	char	*cd;
+// int	check_cd(char *prompt)
+// {
+// 	char	*cd;
 
-	cd = "cd";
-	if (ft_strlen(prompt) == ft_strlen(cd))
-		if (ft_strncmp(prompt, cd, 2) == 0)
-			return (1);
-		return (0);
-}
+// 	cd = "cd";
+// 	if (ft_strlen(prompt) == ft_strlen(cd))
+// 		if (ft_strncmp(prompt, cd, 2) == 0)
+// 			return (1);
+// 		return (0);
+// }

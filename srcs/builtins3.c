@@ -40,6 +40,8 @@ int	verify_double(t_data *data, char *cmd)
 	return (0);
 }
 
+//Ne fonctionnera pas avec CD pour changer les oldpwd etc. Va falloir modifier cette fonction pour la rendre utilisable
+//avec cd
 void	ft_export(t_data *data, char **cmd)
 {
 	int		i;
