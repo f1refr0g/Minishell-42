@@ -89,6 +89,7 @@ void    ft_echo(char **cmd);
 //Builtins4.c
 char    *get_env_line(char *var, t_data *data);
 void    ft_cd(t_data *data, char **cmdarray);
+void	ft_cd_export(t_data *data, char **cmd, char *pwd);
 
 //token.c
 

@@ -19,7 +19,7 @@ int	main(int ac, char **av, char **env)
 		if (ft_isonlyspace(data.prompt) == 0)
 		{
 			data.len = ft_strlen(data.prompt);
-			// printf("test home variable = %s\n", get_env_line("LESS", &data));
+			printf("test home variable = %s\n", get_env_line("LESS", &data));
 			// printf("str: %s\n", ft_dollar_switch(data.prompt, &data));
 			// if (data.array)
 			// 	ft_free_array(data.array);
@@ -35,10 +35,10 @@ int	main(int ac, char **av, char **env)
 			if ((valid_quote(data.prompt, ft_strlen(data.prompt) - 1, QUOTE) == true))
 				printf(QUOTE_ERROR);
 			ft_export(&data, data.cmd_array[0]);
-		printf("1\n");
-			// ft_echo(data.cmd_array[0]);
+			ft_echo(data.cmd_array[0]);
 
 			ft_pwd(&data);
+			ft_cd(&data, data.cmd_array[0]);
 			ft_env(&data);
 			ft_exit(&data);	// free(data.prompt);					// Free the char *
 		// data.state++;

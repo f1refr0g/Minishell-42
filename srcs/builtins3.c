@@ -48,7 +48,7 @@ void	ft_export(t_data *data, char **cmd)
 	char	*str;
 
 	i = 0;
-	// if (ft_strncmp(cmd[0], "export", 6) == 0)
+	if (ft_strncmp(cmd[0], "export", 6) == 0)
 	{
 		if (cmd[1] && ft_strchr(cmd[1], '='))
 		{
@@ -69,7 +69,6 @@ void	ft_echo(char **cmd)
 
 	i = 0;
 
-	printf ("123\n");
 	if (ft_strncmp(cmd[0], "echo", 3) == 0)
 	{
 		if (cmd[1] != NULL)

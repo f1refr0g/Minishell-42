@@ -45,13 +45,13 @@ int	check_pwd(char *prompt)
 // 	ft_free_array(path);
 // }
 
-// int	check_cd(char *prompt)
-// {
-// 	char	*cd;
+int	check_cd(char *prompt)
+{
+	char	*cd;
 
-// 	cd = "cd";
-// 	if (ft_strlen(prompt) == ft_strlen(cd))
-// 		if (ft_strncmp(prompt, cd, 2) == 0)
-// 			return (1);
-// 		return (0);
-// }
+	cd = "cd";
+	if (ft_strlen(prompt) == ft_strlen(cd))
+		if (ft_strncmp(prompt, cd, 2) == 0)
+			return (1);
+		return (0);
+}
