@@ -12,6 +12,7 @@ int	main(int ac, char **av, char **env)
 	// int i = 0;
 	//Initiation des struct etc.
 	// ft_memset(&data, 0, sizeof(t_data));
+	ft_signal_handler_parent(false, false);
 	ft_init_minishell(&data, env);
 	while (1)
 	{

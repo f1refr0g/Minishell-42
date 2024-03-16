@@ -13,7 +13,7 @@
 # include <termios.h>
 # include "libft/libft.h"
 # include "token.h"
-
+# include <signal.h>
 
 //ERROR MESSAGE
 
