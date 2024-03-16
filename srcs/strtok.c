@@ -49,7 +49,6 @@ char	**ft_tok(char *s, char c)
 	int		qpos;
 	char	**split;
 
-	// printf("\n\n Splitted with %c and string %s\n\n\n", c, s);
 	if (!s)
 		return (0);
 	split = ft_calloc((ft_countwords(s, c) + 1), sizeof(char *));
@@ -72,13 +71,9 @@ char	**ft_tok(char *s, char c)
 		}
 		else if ((s[i] == c || i == ft_strlen(s)) && ind >= 0)
 		{
-			// if (i != ft_strlen(s))
 			split[j++] = word_up(s, ind, i);
-			// printf("S[i] : |%s|\n", &s[i]);
-			// printf("\nj = %zu\n", j);
 			ind = -1;
 		}
-		// printf("si : %s\n ", &s[i]);
 	}
 	split[j] = NULL;
 	return (split);
