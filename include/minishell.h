@@ -124,4 +124,6 @@ void    print_cmd_array(char ***cmd_array);
 //strtok.c
 char	**ft_tok(char *src, char sep);
 
+void    ft_cd_home(t_data *data, char **cmdarray, char *home);
+
 #endif
