@@ -126,4 +126,7 @@ char	**ft_tok(char *src, char sep);
 
 void    ft_cd_home(t_data *data, char **cmdarray, char *home);
 
+//Signal.c
+void	ft_signal_handler_parent(bool mute, bool is_interactive);
+
 #endif
