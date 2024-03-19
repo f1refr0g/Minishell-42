@@ -49,7 +49,7 @@ Ordre de dannnn
     Demander explication sur trim_token et str_tok.
     Ainsi que sur les ***array (liste de tableau de commande lorsque on split sur le | pour envoyer les tableau a execve)
 
-
+https://42-cursus.gitbook.io/guide/exams/exam-rank-02/level-1/fizz_buzz#fizz_buzz
 
 
     https://github.com/zstenger93/minishell/blob/master/mindmap.png
