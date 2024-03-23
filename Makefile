@@ -22,7 +22,7 @@ FILES :=	main.c\
 			exec_utils.c\
 			signal.c\
 			
-SRCS =: $(addprefix $(SRC_DIR)/, $(FILES))
+SRCS := $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
 OBJS := $(addprefix $(OBJS_DIR)/, $(FILES:.c=.o))
 
