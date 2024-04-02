@@ -5,23 +5,23 @@
 
 int	main(int ac, char **av, char **env)
 {
-	t_data	data;
+	t_data			data;
+	static t_mini	*mini;
 
-	(void)ac;
 	(void)av;
 	if (ac > 1 || !env[0])
 		return (launch_fail(env));
-	// int i = 0;
 	//Initiation des struct etc.
-	// ft_memset(&data, 0, sizeof(t_data));
+	mini = get_data();
 	ft_init_minishell(&data, env);
 	while (1)
 	{
 		ft_signal_handler_parent(INTERACTIVE);
-		data.prompt = readline("Minishell > ");	// Get User input inside char *input
-		if (!data.prompt)
-			return (ft_exit(&data));
-		add_history(data.prompt);
+		mini->input = get_prompt("Minishell > ");
+		//data.prompt = readline("Minishell > ");	// Get User input inside char *input
+		// if (!data.prompt)
+		// 	return (ft_exit(&data));
+		//add_history(data.prompt);
 		if (ft_isonlyspace(data.prompt) == 0)
 		{
 			data.len = ft_strlen(data.prompt);
@@ -46,7 +46,7 @@ int	main(int ac, char **av, char **env)
 			ft_pwd(&data);
 			ft_cd(&data, data.cmd_array[0]);
 			ft_env(&data);
-			ft_exit(&data);	// free(data.prompt);					// Free the char *
+			ft_exit(&data);	// free(data.prompt);	// Free the char *
 		// data.state++;
 		}
 	}

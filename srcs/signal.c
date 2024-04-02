@@ -22,11 +22,11 @@ void	ft_doc_sig_handle(int signal)
 
 void	interactive_shell(int signal)
 {
-	write(STDOUT_FILENO, "\n", 1);
-	rl_on_new_line();
-	rl_replace_line("", 0);
-	rl_redisplay();
 	(void)signal;
+	write(STDOUT_FILENO, "\n", 1);
+	rl_replace_line("", 0);
+	rl_on_new_line();
+	rl_redisplay();
 }
 
 void	ft_signal_handler_parent(int mode)

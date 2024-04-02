@@ -8,6 +8,8 @@ LIBFT = ./include/libft/libft.a
 
 SRC_DIR := srcs
 FILES :=	main.c\
+			env.c\
+			env2.c\
 			init_minishell.c\
 			builtins.c\
 			builtins2.c\
@@ -17,8 +19,10 @@ FILES :=	main.c\
 			token.c\
 			quote.c\
 			execution.c\
+			prompt.c\
 			utils.c\
 			strtok.c\
+			set_shlvl.c\
 			exec_utils.c\
 			signal.c\
 			

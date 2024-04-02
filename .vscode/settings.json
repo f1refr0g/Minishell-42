@@ -2,6 +2,10 @@
     "files.associations": {
         "queue": "c",
         "random": "c",
-        "minishell.h": "c"
+        "minishell.h": "c",
+        "memory": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "unordered_map": "c"
     }
 }
