@@ -16,11 +16,13 @@ FILES :=	main.c\
 			builtins3.c\
 			builtins4.c\
 			clean.c\
+			mini_split.c\
 			token.c\
 			quote.c\
 			execution.c\
 			prompt.c\
 			utils.c\
+			utils2.c\
 			strtok.c\
 			set_shlvl.c\
 			exec_utils.c\

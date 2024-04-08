@@ -125,7 +125,7 @@ void			ft_cd_export(t_data *data, char **cmd, char *pwd);
 
 //token.c
 
-char			**ft_parse(t_data *data);
+int				ft_parse(t_mini	*mini);
 int				ft_count(char *str);
 char			*ft_expend(t_data *data);
 char			***ft_commandarray(t_data *data);
@@ -142,16 +142,25 @@ char			*get_command_path(char *argv, char **envp);
 void			get_command(char **argv, char **envp, int argval);
 
 //exec utils.c
-
 void			ft_execute(t_data *data);
 void			parent(char **argv, char **envp, int *fd);
 void			child(char **argv, char **envp, int *fd);
+
+//mini_split.c
+int				nb_of_words(char *s, int trigger, int i, int nb_wrds);
+int				mini_len(char *s, int start, int trigger, int len);
+int				word_len(char *s, int start);
+char			**no_name(char *s, int wrd_nb, int nb_wrds, char **split);
+char			**small_split(char *s);
 
 //utils.c
 int				ft_isonlyspace(int c);
 t_mini			*get_data(void);
 void			*ft_other_free(void *p);
 int				is_empty(char *prompt);
+
+//utils2.c
+int				check_valid_quotes(char *input);
 
 //REMOVE BEFORE PUSH
 void			print_cmd_array(char ***cmd_array);

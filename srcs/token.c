@@ -38,17 +38,27 @@ char	***ft_commandarray(t_data *data)
 	return (cmd_array);
 }
 
-//Split the user input on SPACE char and return the allocated array
-char	**ft_parse(t_data *data)
+int	ft_parse(t_mini	*mini)
 {
-	int		i;
-	char	**tab;
-
-	i = -1;
-	tab = ft_split(data->prompt, 32);
-	while (tab[i++])
-		printf("line %d - %s\n", i, tab[i]);
-	return (tab);
+	if (!check_valid_quotes(mini->input))
+	{
+		ft_putendl_fd("Invalid Input", 2);
+		return (0);
+	}
+	mini->no_wrds = nb_of_words(mini->input, 0, 0, 0) + 1;
+	mini->cmds = small_split(mini->input);
+	if (mini->cmds || mini->cmds == NULL)
+		return (0);
+	mini->new_cmds = parse_small_cmds();//ici
+	if (!check_input(mini))
+		return (0);
+	releaser(mini->cmds);
+	if (!tokeniser(mini))
+		return (0);
+	releaser(mini->new_cmds);
+	if (!strncmp(mini->tokens->cmd[0], "exit", 5))
+		return (ft_exit(mini->tokens->cmd));
+	return (1);
 }
 
 //NE PAS POUBLIER LE DOLLAR SIGNE DANS MALLOC
