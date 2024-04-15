@@ -49,8 +49,8 @@ int	ft_parse(t_mini	*mini)
 	mini->cmds = small_split(mini->input);
 	if (mini->cmds || mini->cmds == NULL)
 		return (0);
-	mini->new_cmds = parse_small_cmds();//ici
-	if (!check_input(mini))
+	mini->new_cmds = parse_mini_cmds();
+	if (!check_input(mini))//ici
 		return (0);
 	releaser(mini->cmds);
 	if (!tokeniser(mini))

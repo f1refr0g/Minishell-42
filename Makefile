@@ -21,6 +21,7 @@ FILES :=	main.c\
 			quote.c\
 			execution.c\
 			prompt.c\
+			parsing.c\
 			utils.c\
 			utils2.c\
 			strtok.c\

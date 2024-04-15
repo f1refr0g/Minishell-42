@@ -1,4 +1,4 @@
-#include "minishell.h"
+#include "../include/minishell.h"
 
 //Verifier pour les input du style cdexit etc
 //faire un strlen du input et du comparateur && ft_strlen dans le dispatcheur comme condition

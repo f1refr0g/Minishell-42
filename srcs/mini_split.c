@@ -1,4 +1,4 @@
-#include "../minishell.h"
+#include "../include/minishell.h"
 
 int	nb_of_words(char *s, int trigger, int i, int nb_wrds)
 {

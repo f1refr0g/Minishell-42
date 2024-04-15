@@ -177,4 +177,8 @@ char			*get_prompt(char *ptr);
 void			ft_signal_handler_parent(int mode);
 extern void		rl_replace_line(const char *, int);
 
+//Parsing.c
+char			**parse_mini_cmds(void);
+void			set_mini_no_wrds(void);
+
 #endif
