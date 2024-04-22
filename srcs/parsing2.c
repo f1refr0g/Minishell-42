@@ -23,6 +23,78 @@ int	pipe_check(char **cmds)
 		return (1);
 }
 
+int	redir_check(char **cmds)
+{
+	int	i;
+	int	j;
+	int	trig;
+
+	i = -1;
+	j = -1;
+	trig = 0;
+	while (cmds[++i])
+	{
+		j = -1;
+		while (cmds[i][++j])
+		{
+			if (cmds[i][j] == '>')
+				trig++;
+			else if (trig > 2)
+				return (0);
+			else
+				trig = 0;
+		}
+	}
+	if (trig > 2)
+		return (0);
+	else
+		return (1);
+}
+
+int	redir_check2(char **cmds)
+{
+	int	i;
+	int	j;
+	int	trig;
+
+	i = -1;
+	j = -1;
+	trig = 0;
+	while (cmds[++i])
+	{
+		j = -1;
+		while (cmds[i][++j])
+		{
+			if (cmds[i][j] == '<')
+				trig++;
+			else if (trig > 2)
+				return (0);
+			else
+				trig = 0;
+		}
+	}
+	if (trig > 2)
+		return (0);
+	else
+		return (1);
+}
+
+int	redir_check3(char **cmds)
+{
+	int	i;
+
+	i = 0;
+	if (cmds == NULL)
+		return (0);
+	while (cmds[i])
+	{
+		if (is_sep(cmds[i]) && &cmds[i + 1] && is_sep(cmds[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	check_input(t_mini *mini)
 {
 	int	x;

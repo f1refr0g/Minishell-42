@@ -28,6 +28,48 @@ void	*ft_other_free(void *p)
 	return (0x0);
 }
 
+int	is_sep(char *str)
+{
+	int	i;
+	int	trigger;
+
+	trigger = 0;
+	i = 0;
+	if (!str || !str[0])
+		return (0);
+	if (str[i] == 34 || str[i] == 39)
+		trigger = 1;
+	while (str[i])
+	{
+		if (trigger == 0 && (str[i] == '|' || str[i] == '>' || str[i] == '<'
+				|| (str[i] == '>' && str[i + 1] && str[i + 1] == '>')
+				|| (str[i] == '<' && str[i + 1] && str[i + 1] == '<')))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	is_sep2(char *str)
+{
+	int	i;
+	int	trigger;
+
+	trigger = 0;
+	i = 0;
+	if (!str || !str[0])
+		return (0);
+	if (str[i] == 34 || str[i] == 39)
+		trigger = 1;
+	while (str[i])
+	{
+		if (trigger == 0 && (str[i] == '|'))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 int	is_empty(char *prompt)
 {
 	int	i;
