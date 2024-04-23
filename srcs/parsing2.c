@@ -106,7 +106,19 @@ int	check_input(t_mini *mini)
 	{
 		while (mini->new_cmds[x])
 		{
-			if ()
+			if ((is_sep(mini->new_cmds[x]) && (!mini->new_cmds[x + 1]
+						|| !mini->new_cmds[x + 1][0]))
+				|| (is_sep2(mini->new_cmds[x]) && mini->new_cmds[x + 1]
+					&& (is_sep2(mini->new_cmds[x + 1]))))
+			{
+				syntax_error();
+				return (0);
+			}
+			x++;
 		}
+		return (1);
 	}
+	else
+		syntax_error(0);
+	return (0);
 }

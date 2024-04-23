@@ -42,6 +42,23 @@ enum e_builtin
 	E_EXIT
 };
 
+typedef struct s_token
+{
+	int					token_no;
+	int					type;
+	char				**cmd;
+	char				*next_sep;
+	pid_t				child_pid;
+	pid_t				pid;
+	int					p_fd[2];
+	int					fd_in;
+	int					fd_out;
+	int					fd_hd;
+	struct s_environ	*env;
+	struct s_mini		*mini;
+	struct s_token		*next;
+}					t_token;
+
 typedef struct s_mini
 {
 	char				*input;
@@ -52,7 +69,11 @@ typedef struct s_mini
 	char				*shlvl;
 	int					env_len;
 	int					nb_of_words;
+	t_token				*heredoc_temp;
 	struct s_environ	*env_test;
+	struct s_export		*_export;
+	struct s_token		*tokens;
+	int					no_of_tokens;
 }					t_mini;
 
 typedef struct s_environ
@@ -63,7 +84,15 @@ typedef struct s_environ
 	struct s_environ	*next;
 }					t_environ;
 
-typedef struct	s_data
+typedef struct s_export
+{
+	char				**temp;
+	char				*env_var;
+	char				*env_val;
+	struct s_export		next;
+}					t_export;
+
+typedef struct s_data
 {
 	char				**env;
 	char				***cmd_array;
@@ -72,14 +101,10 @@ typedef struct	s_data
 	char				*expended;
 	int					len;
 	int					nlen;
-
-	// struct termios  term;
 	int					state;
-	// int				exit_code;
 }					t_data;
 
 //init_minishell.c
-
 void			ft_init_minishell(t_data *data, char **env);
 void			ft_init_env(t_data *data, char **env);
 void			ft_set_env(t_mini *mini, char **env);

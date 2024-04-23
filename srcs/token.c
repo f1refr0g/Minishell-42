@@ -50,10 +50,10 @@ int	ft_parse(t_mini	*mini)
 	if (mini->cmds || mini->cmds == NULL)
 		return (0);
 	mini->new_cmds = parse_mini_cmds();
-	if (!check_input(mini))//ici
+	if (!check_input(mini))
 		return (0);
 	releaser(mini->cmds);
-	if (!tokeniser(mini))
+	if (!tokeniser(mini))//ici
 		return (0);
 	releaser(mini->new_cmds);
 	if (!strncmp(mini->tokens->cmd[0], "exit", 5))

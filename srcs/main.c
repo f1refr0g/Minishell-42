@@ -3,6 +3,23 @@
 #include <stdlib.h>		// Free
 #include <stdbool.h>	// Bool (true/false)
 
+void	*releaser(char **table)
+{
+	int	i;
+
+	i = 0;
+	if (table)
+	{
+		while (table[i])
+		{
+			free(table[i]);
+			i++;
+		}
+		free(table);
+	}
+	return (NULL);
+}
+
 int	main(int ac, char **av, char **env)
 {
 	t_data			data;
