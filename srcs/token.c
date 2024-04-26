@@ -1,18 +1,5 @@
 #include "../include/minishell.h" 
 
-void	print_cmd_array(char ***cmd_array)
-{
-	printf("____________________\n");
-	for	(int i = 0; cmd_array[i] != NULL; i++)
-	{
-		printf("Command %d:\n", i);
-		for (int j = 0; cmd_array[i][j] != NULL; j++) {
-			printf("  Argument %d: |%s|\n", j, cmd_array[i][j]);
-		}
-		printf("____________________\n");
-	}
-}
-
 char	***ft_commandarray(t_data *data)
 {
 	char	***cmd_array;
@@ -53,9 +40,9 @@ int	ft_parse(t_mini	*mini)
 	if (!check_input(mini))
 		return (0);
 	releaser(mini->cmds);
-	if (!tokeniser(mini))//ici
+	if (!tokeniser(mini))
 		return (0);
-	releaser(mini->new_cmds);
+	releaser(mini->new_cmds);//ici
 	if (!strncmp(mini->tokens->cmd[0], "exit", 5))
 		return (ft_exit(mini->tokens->cmd));
 	return (1);

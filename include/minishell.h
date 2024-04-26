@@ -21,10 +21,19 @@
 # define QUOTE_ERROR "Error : Invalid quote\n"
 
 //Quote handling
-
-# define QUOTE 0
-# define SINGLE_QUOTE 1
-# define DOUBLE_QUOTE 2
+# define PROMPT "Minishell-42$ "
+# define HEREDOC "heredoc > "
+# define EMPTY 0
+# define CMD 1
+# define ARGS 2
+# define PIPE 3
+# define REDIR_IN 4
+# define REDIR_OUT 5
+# define ABS 6
+# define FILE_OUT 7
+# define REDIR_DBL 9
+# define REDIR_DBL2 10
+# define HEREDOC_T 10
 # define INTERACTIVE 11
 # define CHILD 12
 # define HERE_DOC_SIG 13
@@ -104,6 +113,12 @@ typedef struct s_data
 	int					state;
 }					t_data;
 
+//absolute.c
+char			**build_cmd(t_token *token);
+void			exec_abs_path(char *path, t_token *token);
+void			abs_error(t_token *token);
+void			absolute_path(t_token *token);
+
 //init_minishell.c
 void			ft_init_minishell(t_data *data, char **env);
 void			ft_init_env(t_data *data, char **env);
@@ -119,19 +134,16 @@ int				update_env_part3(t_mini *mini, char *part, char *_new);
 char			*get_env_part(t_mini *mini, char *part);
 
 //clean.c
-
 void			ft_clean(t_data *data);
 int				launch_fail(char **env);
 
 //Built-in.c
-
 void			ft_exit(t_data *data);
 int				check_exit(char *prompt);
 void			ft_env(t_data *data);
 int				check_env(char *prompt);
 
 //Built-in2.c
-
 int				check_pwd(char *prompt);
 void			ft_pwd(t_data *data);
 int				check_cd(char *prompt);
@@ -139,9 +151,10 @@ int				check_cd(char *prompt);
 //Built-in3.c
 
 void			ft_export(t_data *data, char **cmd);
-int				verify_double(t_data *data, char *cmd);
-void			ft_unset(t_data *data, char *cmd);
-void			ft_echo(char **cmd);
+void			ft_echo2(int i, int n_option, t_token *token);
+int				ft_unset(t_token *token);
+int				ft_echo(t_token *token);
+void			ft_unset2(t_mini *mini);
 
 //Builtins4.c
 char			*get_env_line(char *var, t_data *data);
@@ -186,9 +199,6 @@ int				is_empty(char *prompt);
 
 //utils2.c
 int				check_valid_quotes(char *input);
-
-//REMOVE BEFORE PUSH
-void			print_cmd_array(char ***cmd_array);
 
 //strtok.c
 char			**ft_tok(char *src, char sep);

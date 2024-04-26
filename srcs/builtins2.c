@@ -1,17 +1,15 @@
 #include "../include/minishell.h"
 
 //Display the current path
-void	ft_pwd(t_data *data)
+int	ft_pwd(t_token *token)
 {
-	char	pwd[PATH_MAX];
+	char	pwd[100];
 
-	if (check_pwd(data->prompt) == 1)
-	{
-		if (getcwd(pwd, PATH_MAX) != NULL)
-			printf("%s\n", pwd);
-		else
-			printf("No path available\n");
-	}
+	getcwd(pwd, 100);
+	free(token->cmd[0]);
+	token->cmd[0] = ft_strdup(pwd);
+	ft_putendl_fd(pwd, 1);
+	return (1);
 }
 
 //TEST FUNCTION TO SEE IF PWD WORK (REMOVE WHEN EXECUTION IS DONE)

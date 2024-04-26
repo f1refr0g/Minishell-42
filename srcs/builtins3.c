@@ -1,41 +1,52 @@
 #include "../include/minishell.h"
 
-void	ft_unset(t_data *data, char *cmd)
+void	ft_unset2(t_mini *mini)
 {
-	int		i;
-	int		y;
-	char	*temp;
+	t_environ	*temp;
 
-	i = -1;
-	y = 0;
-	temp = ft_substr(cmd, 0, ft_strchr(cmd, '=') - cmd);
-	while (data->env[++i])
+	if (mini->env_test->next != NULL)
 	{
-		if (ft_strncmp(temp, data->env[i], ft_strlen(temp)) == 0)
+		free(mini->env_test->next->env_var);
+		free(mini->env_test->next->env_val);
+		releaser(mini->env_test->next->temp);
+		if (mini->env_test->next->next)
 		{
-			free(data->env[i]);
-			while (data->env[i + 1])
-			{
-				data->env[i] = data->env[i + 1];
-				i++;
-			}
-			data->env[i] = NULL;
+			temp = mini->env_test->next->next;
+			free(mini->env_test->next);
+			mini->env_test->next = temp;
+		}
+		else
+		{
+			free(mini->env_test->next);
+			mini->env_test->next = NULL;
 		}
 	}
 }
 
-int	verify_double(t_data *data, char *cmd)
+int	ft_unset(t_token *token)
 {
-	int	i;
+	char		*part;
+	int			cmd_no;
+	int			len;
+	t_environ	*head;
+	t_mini		*mini;
 
-	i = 0;
-	while (data->env[i] != NULL)
+	mini = get_data();
+	if (!token->cmd[1] || !token->cmd[1][0])
+		return (0);
+	cmd_no = -1;
+	while (token->cmd[cmd_no])
 	{
-		if (ft_strncmp(cmd, data->env[i], ft_strlen(cmd)) == 0)
-		{
-			return (1);
-		}
-		i++;
+		part = (token->cmd[cmd_no]);
+		len = ft_strlen(part);
+		head = mini->env_test;
+		while (mini->env_test->next && ft_strncmp(part,
+				mini->env_test->next->env_var, len) != 0)
+			mini->env_test = mini->env_test->next;
+		ft_unset2(mini);
+		mini->env_test = head;
+		mini->env_len--;
+		cmd_no++;
 	}
 	return (0);
 }
@@ -63,35 +74,43 @@ void	ft_export(t_data *data, char **cmd)
 	}
 }
 
-void	ft_echo(char **cmd)
+void	ft_echo2(int i, int n_option, t_token *token)
 {
-	int i;
-
-	i = 0;
-
-	if (ft_strncmp(cmd[0], "echo", 3) == 0)
+	while (token->cmd[i])
 	{
-		if (cmd[1] != NULL)
-		{
-		if (ft_strncmp(cmd[1], "-n", 2) == 0)
-		{
-			i = 2;
-			while (cmd[i])
-			{
-			printf("%s", cmd[i]);
-			i++;
-			}
-		}
-		else
-		{
-			i = 1;
-			while (cmd[i])
-			{
-			printf("%s ", cmd[i]);
-			i++;
-			}
-			printf("\n");
-		}
-		}
+		ft_putstr_fd(token->cmd[i], 1);
+		if (token->cmd[i + 1] && token->cmd[i][0] != '\0')
+			write(1, " ", 1);
+		i++;
 	}
+	if (n_option <= 0)
+		write(1, "\n", 1);
+}
+
+int	ft_echo(t_token *token)
+{
+	int	i;
+	int	j;
+	int	n_option;
+
+	i = 1;
+	j = 1;
+	n_option = -1;
+	if (!token->cmd[1] || token->cmd[1] == NULL)
+		return (write(1, "\n", 1));
+	while (token->cmd[i] && !ft_strncmp(token->cmd[i], "-n", 2)
+		&& n_option != 0)
+	{
+		n_option = 1;
+		while (token->cmd[i][j] == 'n')
+			j++;
+		if (ft_isalnum(token->cmd[i][j]) || token->cmd[i][j] == '-')
+		{
+			i--;
+			n_option = 0;
+		}
+		i++;
+	}
+	ft_echo2(i, n_option, token);
+	return (1);
 }

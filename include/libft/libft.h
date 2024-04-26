@@ -86,5 +86,6 @@ int		ft_isint(int nb);
 long	int	ft_atoil(const char *str);
 int		ft_intoverflow(long int nbr);
 char	**ft_splitdoc(char const *s, char c);
+char	*ft_strdup2(const char *s1);
 
 #endif
