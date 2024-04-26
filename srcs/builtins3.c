@@ -51,27 +51,14 @@ int	ft_unset(t_token *token)
 	return (0);
 }
 
-//Ne fonctionnera pas avec CD pour changer les oldpwd etc. Va falloir modifier cette fonction pour la rendre utilisable
-//avec cd
-void	ft_export(t_data *data, char **cmd)
+int	ft_export(t_mini *mini, char **var)
 {
-	int		i;
-	char	*str;
-
-	i = 0;
-	if (ft_strncmp(cmd[0], "export", 6) == 0)
-	{
-		if (cmd[1] && ft_strchr(cmd[1], '='))
-		{
-			str = ft_substr(cmd[1], 0, ft_strchr(cmd[1], '=') - cmd[1]);
-			if (verify_double(data, str) == 1)
-				ft_unset(data, cmd[1]);
-			while (data->env[i])
-				i++;
-			data->env[i] = ft_strdup(cmd[1]);
-			free(str);
-		}
-	}
+	if (!var || !var[0] || !var[0][0])
+		return (export_no_input(mini));
+	if (!check_export(var))
+		return (0);
+	init_export(mini, var);
+	do_export(mini, var);
 }
 
 void	ft_echo2(int i, int n_option, t_token *token)

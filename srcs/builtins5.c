@@ -1,0 +1,55 @@
+#include "../include/minishell.h"
+
+
+
+int	check_export(char **var)
+{
+	int	x;
+	int	ret;
+
+	x = 0;
+	ret = 1;
+	if (!var || !var[0])
+		return (0);
+	while (var[x])
+	{
+		if ((var[x][0] == 0) || !ft_isalpha(var[x][0]))
+		{
+			ft_putstr_fd("export: ", 2);
+			ft_putstr_fd(var[x], 2);
+			ft_putstr_fd(" identifier not valid\n", 2);
+			ret = 0;
+		}
+		x++;
+	}
+	return (ret);
+}
+
+int	export_no_input(t_mini *mini)
+{
+	t_environ	*head;
+
+	head = mini->env_test;
+	while (head)
+	{
+		ft_putstr_fd("declare -x", 1);
+		ft_putstr_fd(head->env_var, 1);
+		ft_putstr_fd("=", 1);
+		ft_putchar_fd(34, 1);
+		ft_putstr_fd(head->env_val, 1);
+		ft_putchar_fd(34, 1);
+		ft_putstr_fd("\n", 1);
+		head = head->next;
+	}
+	return (0);
+}
+
+int	ft_export(t_mini *mini, char **var)
+{
+	if (!var || !var[0] || !var[0][0])
+		return (export_no_input(mini));
+	if (!check_export(var))
+		return (0);
+	init_export(mini, var);
+	do_export(mini, var);
+}//ici

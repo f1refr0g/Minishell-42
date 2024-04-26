@@ -1,7 +1,7 @@
 #include "../include/minishell.h"
 
 //Fixer le probleme de cd seul, 
-void	ft_cd(t_data *data, char **cmdarray)
+int	ft_cd(t_data *data, char **cmdarray)
 {
 	char	*oldpwd;
 	char	*pwd;
@@ -72,7 +72,7 @@ char    *get_env_line(char *var, t_data *data)
 				return (data->env[i] + ft_strlen(var) + 1);
 			}
 		}
-	   i++; 
+		i++;
 	}
 	write(2, "Minishell cd : HOME is not set\n", 31);
 	return (NULL);
