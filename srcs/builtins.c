@@ -1,31 +1,15 @@
 #include "../include/minishell.h"
 
-//Display the environment
-void	ft_env(t_data *data)
+t_environ	*new_env(char *var)
 {
-	int	i;
+	t_mini		*mini;
+	t_environ	*new_env;
 
-	i = 0;
-	if (check_env(data->prompt) == 1)
-	{
-		while (data->env[i] != NULL)
-		{
-			printf("%s\n", data->env[i]);
-			i++;
-		}
-	}
-}
-
-//TEST FUNCTION FOR ENV EXEC(REMOVE WHEN EXEC IS DONE)
-int	check_env(char *prompt)
-{
-	char	*env;
-
-	env = "env";
-	if (ft_strlen(prompt) == ft_strlen(env))
-		if (ft_strncmp(prompt, env, 3) == 0)
-			return (1);
-	return (0);
+	mini = get_data();
+	new_env = init_item(var);
+	mini->env_len++;
+	new_env->next = NULL;
+	return (new_env);
 }
 
 //Exit minishell and call the janitor

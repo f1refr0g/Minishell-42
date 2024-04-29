@@ -1,6 +1,40 @@
 #include "../include/minishell.h"
 
+t_export	*ft_exp(t_mini *mini, char *var)
+{
+	t_export	*export;
 
+	(void)mini;
+	export = malloc(sizeof(t_export));
+	if (!export)
+		return (NULL);
+	export->temp = ft_split(var, '=');
+	export->env_var = ft_strdup(export->temp[0]);
+	if (var[ft_strlen(export->env_var)])
+		export->env_val = ft_strdup(&var[ft_strlen(export->env_var) + 1]);
+	else
+		export->env_val = ft_strdup(" \0");
+	export->next = NULL;
+	releaser(export->temp);
+	return (export);
+}
+
+void	init_export(t_mini *mini, char **var)
+{
+	t_export	*export_head;
+	int			x;
+
+	x = 0;
+	mini->_export = ft_exp(mini, var[x]);
+	export_head = mini->_export;
+	while (var[++x])
+	{
+		mini->_export = ft_exp(mini, var[x]);
+		mini->_export = mini->_export->next;
+	}
+	mini->_export->next = NULL;
+	mini->_export = export_head;
+}
 
 int	check_export(char **var)
 {
