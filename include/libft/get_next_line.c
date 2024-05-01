@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abeaudet <abeaudetfr0g42@gmail.com>        +#+  +:+       +#+        */
+/*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:50:51 by abeaudet          #+#    #+#             */
-/*   Updated: 2022/12/20 13:27:39 by abeaudet         ###   ########.fr       */
+/*   Updated: 2024/05/01 13:53:18 by oldrolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,13 @@ void	ft_read(int fd, char **str, char **temp)
 		}
 		buffy[i] = '\0';
 		*temp = ft_strdup(*str);
-		ft_free(str, 0, 0);
+		ft_freeab(str, 0, 0);
 		*str = ft_strjoin(*temp, buffy);
-		ft_free(temp, 0, 0);
+		ft_freeab(temp, 0, 0);
 		if (ft_endline(*str))
 			break ;
 	}
-	ft_free(&buffy, 0, 0);
+	ft_freeab(&buffy, 0, 0);
 }
 
 //stock ce qui a ete lu entre les 2 bn
@@ -102,10 +102,10 @@ char	*ft_lookline(char **buffer, char **temp)
 	char	*line;
 
 	*temp = ft_strdup(*buffer);
-	ft_free(buffer, 0, 0);
+	ft_freeab(buffer, 0, 0);
 	*buffer = ft_postline(*temp);
 	line = ft_preline(*temp);
-	ft_free(temp, 0, 0);
+	ft_freeab(temp, 0, 0);
 	return (line);
 }
 
@@ -124,7 +124,7 @@ char	*get_next_line(int fd)
 		line = ft_lookline(&buffer, &temp);
 	if (!line || *line == '\0')
 	{
-		ft_free(&buffer, &line, &temp);
+		ft_freeab(&buffer, &line, &temp);
 		return (NULL);
 	}
 	return (line);

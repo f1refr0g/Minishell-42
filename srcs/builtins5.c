@@ -86,4 +86,4 @@ int	ft_export(t_mini *mini, char **var)
 		return (0);
 	init_export(mini, var);
 	do_export(mini, var);
-}//ici
+}

@@ -26,4 +26,4 @@ void	do_export(t_mini *mini, char **var)
 		head = head->next;
 	}
 	free_export(mini->_export);
-}//ici
+}

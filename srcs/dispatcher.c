@@ -1,49 +1,44 @@
+
 #include "../include/minishell.h"
 
-//Verifier pour les input du style cdexit etc
-//faire un strlen du input et du comparateur && ft_strlen dans le dispatcheur comme condition
-//ajouter t_data *data dans le call
-void	ft_dispatcher(t_data *data, char **tab)
+int	is_builtin(t_token *token)
 {
-	while (tab[0])
-	{
-		if (ft_strncmp(tab[0], "cd", 2 == 0))
-			ft_cd(data, tab[1]);
-
-
-
-			return (E_CD);
-		if (ft_strncmp(tab[0], "unset", 5) == 0)
-			return (E_UNSET);
-		if (ft_strncmp(tab[0], "export", 6) == 0)
-			return (E_EXPORT);
-		if (ft_strncmp(tab[0], "pwd", 3) == 0)
-			return (E_PWD);
-		if (ft_strncmp(tab[0], "echo", 4) == 0)
-			return (E_ECHO);
-		if (ft_strncmp(tab[0], "env", 3) == 0)
-			return (E_ENV);
-		if (ft_strncmp(tab[0], "exit", 4) == 0)
-			return (E_EXIT);
-	}
-	return (-1);
+	if (!ft_strncmp(token->cmd[0], "pwd", 3))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "PWD", 3))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "export", 6) && !token->cmd[1])
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "export", 6))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "unset", 5))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "echo", 5))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "env", 3))
+		return (1);
+	else if (!ft_strncmp(token->cmd[0], "cd", 2))
+		return (1);
+	else
+		return (0);
 }
 
-//Standardizer les inputs de chaque fonction et les outpout AJOUTER CD
-int	ft_builtex(int flag, t_data *data)
+int	ft_builtins(t_token *token)
 {
-	// if (flag == 0)
-	// 	ft_cd();
-	if (flag == 1)
-		ft_unset(data, (cmd));
-	if (flag == 2)
-		ft_export(data, (cmd));
-	if (flag == 3)
-		ft_pwd(data);
-	if (flag == 4)
-		ft_echo(input valide);
-	if (flag == 5)
-		ft_env(data);
-	if (flag == 6)
-		ft_exit(data);
+	t_mini	*mini;
+
+	mini = get_data();
+	if (!ft_strncmp(token->cmd[0], "cd", 2))
+		ft_cd(mini, token);
+	else if (!ft_strncmp(token->cmd[0], "unset", 5))
+		ft_unset(token);
+	else if (!ft_strncmp(token->cmd[0], "export", 6) && !token->cmd[1])
+		ft_export(mini, NULL);
+	else if (!ft_strncmp(token->cmd[0], "export", 6))
+		ft_export(mini, &token->cmd[1]);
+	else if (!ft_strncmp(token->cmd[0], "env", 3))
+		ft_env(token);
+	else
+		return (0);
+	return (1);
 }

@@ -1,15 +1,14 @@
 #include "../include/minishell.h"
 
-t_environ	*new_env(char *var)
+int	check_cd(char *prompt)
 {
-	t_mini		*mini;
-	t_environ	*new_env;
+	char	*cd;
 
-	mini = get_data();
-	new_env = init_item(var);
-	mini->env_len++;
-	new_env->next = NULL;
-	return (new_env);
+	cd = "cd";
+	if (ft_strlen(prompt) == ft_strlen(cd))
+		if (ft_strncmp(prompt, cd, 2) == 0)
+			return (1);
+	return (0);
 }
 
 //Exit minishell and call the janitor

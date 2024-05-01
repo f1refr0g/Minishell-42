@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:58:13 by abeaudet          #+#    #+#             */
-/*   Updated: 2024/02/12 15:33:36 by admin            ###   ########.fr       */
+/*   Updated: 2024/05/01 13:52:28 by oldrolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ char	*ft_strdup(const char *s1)
 }
 
 //fonction pour free plusieur ptr ( double pointeur pour avoir enough medmory)
-void	ft_free(char **str, char **str2, char **str3)
+void	ft_freeab(char **str, char **str2, char **str3)
 {
 	if (str && *str)
 	{

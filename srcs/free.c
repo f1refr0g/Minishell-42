@@ -1,7 +1,7 @@
 
 #include "../include/minishell.h"
 
-void	free(t_token *tokens)
+void	free_tokens(t_token *tokens)
 {
 	t_token	*temp;
 

@@ -1,5 +1,28 @@
 #include "../include/minishell.h"
 
+void	print_real_env(char **env)
+{
+	int	x;
+
+	x = -1;
+	while (env[++x])
+		ft_putendl_fd(env[x], 1);
+}
+
+void	print_env(t_environ *environ)
+{
+	t_environ	*head;
+
+	head = environ;
+	while (head)
+	{
+		ft_putstr_fd(head->env_var, 1);
+		ft_putchar_fd('=', 1);
+		ft_putendl_fd(head->env_val, 1);
+		head = head->next;
+	}
+}
+
 t_environ	*ft_envlast(t_environ *env)
 {
 	t_environ	*head;
@@ -12,19 +35,6 @@ t_environ	*ft_envlast(t_environ *env)
 		head = head->next;
 	}
 	return (head);
-}
-
-void	ft_envadd_back(t_environ **env, t_environ *neo)
-{
-	t_environ	*temp;
-
-	if (*env == NULL)
-		*env = neo;
-	else
-	{
-		temp = ft_envlast(*(env));
-		temp->next = neo;
-	}
 }
 
 t_environ	*init_item(char *to_split)
@@ -45,4 +55,20 @@ t_environ	*init_item(char *to_split)
 		env->env_val = ft_strdup(" \0");
 	env->next = NULL;
 	return (env);
+}
+
+void	set_env(t_mini *mini, char **env)
+{
+	t_environ	*head;
+	int			x;
+
+	x = 0;
+	mini->env_test = init_item(env[x]);
+	head = mini->env_test;
+	while (env[++x])
+	{
+		mini->env_test->next = init_item(env[x]);
+		mini->env_test = mini->env_test->next;
+	}
+	mini->env_test = head;
 }

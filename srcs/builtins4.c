@@ -1,36 +1,30 @@
+
 #include "../include/minishell.h"
 
-//Fixer le probleme de cd seul, 
-int	ft_cd(t_data *data, char **cmdarray)
+int	ft_cd(t_mini *mini, t_token *token)
 {
-	char	*oldpwd;
-	char	*pwd;
-	char	*newpwd;
+	int		x;
+	char	dir[100];
 
-	if(check_cd(cmdarray[0]) == 1)
+	x = 1;
+	getcwd(dir, 100);
+	if (!token->cmd[1] || !token->cmd[1][0])
 	{
-		if (!cmdarray[1])
-		{
-			newpwd = get_env_line("HOME", data);
-			ft_cd_home(data, cmdarray, newpwd);
-		}
-		if (cmdarray[1] && chdir(cmdarray[1]) == 0)
-		{
-			ft_unset(data,"OLDPWD");
-			pwd = get_env_line("PWD", data);
-			oldpwd = ft_strjoin("OLDPWD=", pwd);
-			ft_cd_export(data, cmdarray, oldpwd);
-			free(oldpwd);
-			ft_unset(data, "PWD");
-			oldpwd = getcwd(NULL, 0);
-			newpwd = ft_strjoin("PWD=", oldpwd);
-			ft_cd_export(data, cmdarray, newpwd);
-			free(newpwd);
-			free(oldpwd);
-		}
-		else
-			write(2, "Error cd : Directory not found\n", 31);
+		x = chdir(get_env_part(mini, "HOME"));
+		update_env_part3(mini, "OLDPWD", dir);
+		getcwd(dir, 100);
+		update_env_part3(token->mini, "PWD", dir);
 	}
+	else
+	{
+		x = chdir(token->cmd[1]);
+		update_env_part3(mini, "OLDPWD", dir);
+		if (x != 0)
+			display_error(token->cmd[1]);
+		getcwd(dir, 100);
+		update_env_part3(token->mini, "PWD", dir);
+	}
+	return (x);
 }
 
 void    ft_cd_home(t_data *data, char **cmdarray, char *home)
