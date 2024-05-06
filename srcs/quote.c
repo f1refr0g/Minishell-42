@@ -88,7 +88,6 @@ int	dollar_len(char *mini_cmd)
 	return (i);
 }
 
-//FIND THE $and return the trimmed variable name following it
 char	*ft_dollar_switch(char *mini_cmd)
 {
 	char	*dollar_sign;
@@ -116,7 +115,6 @@ char	*ft_dollar_switch(char *mini_cmd)
 	return (dollar_sign);
 }
 
-//Check if input contain a dollars sign
 int	contain_cash(char *input)
 {
 	int	i;
