@@ -36,7 +36,7 @@
 # define HEREDOC_T 10
 # define INTERACTIVE 11
 # define CHILD 12
-# define HERE_DOC_SIG 13
+# define HD_SIG 13
 
 int			g_errno;
 

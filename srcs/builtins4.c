@@ -1,6 +1,16 @@
 
 #include "../include/minishell.h"
 
+void	display_error(char *cmd)
+{
+	ft_putstr_fd("Minishell: cd: ", 2);
+	ft_putstr_fd(cmd, 2);
+	if (access(cmd, F_OK | X_OK) == 0)
+		ft_putendl_fd(": Not a directory", 2);
+	else
+		ft_putendl_fd(": No such file or directory", 2);
+}
+
 int	ft_cd(t_mini *mini, t_token *token)
 {
 	int		x;
