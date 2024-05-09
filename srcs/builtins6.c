@@ -1,4 +1,3 @@
-
 #include "../include/minishell.h"
 
 void	do_export(t_mini *mini, char **var)

@@ -1,4 +1,3 @@
-
 #include "../include/minishell.h"
 
 void	free_tokens(t_token *tokens)

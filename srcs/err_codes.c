@@ -1,4 +1,3 @@
-
 #include "../include/minishell.h"
 
 char	*check_cmd2(t_token *token)

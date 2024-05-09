@@ -128,61 +128,106 @@ t_environ		*init_item(char *to_split);
 //set_shlvl
 int				set_shlvl(void);
 
-//env2.c
+//env.c
+void			print_real_env(char **env);
+void			print_env(t_environ *environ);
+t_environ		*ft_envlast(t_environ *env);
+t_environ		*init_item(char *to_split);
+void			set_env(t_mini *mini, char **env);
 
+//env2.c
+int				update_env_part2(t_mini *mini, char *part, char *_new);
 int				update_env_part3(t_mini *mini, char *part, char *_new);
 char			*get_env_part(t_mini *mini, char *part);
+char			*check_part(char *part);
+
+//env3.c
+int				ft_env(t_token *token);
+void			ft_envadd_back(t_environ **env, t_environ *neo);
+int				env_size(t_environ *env);
+char			**env_l_to_dbl_arr(t_environ *env);
 
 //clean.c
 void			ft_clean(t_data *data);
 int				launch_fail(char **env);
 
-//Built-in.c
-void			ft_exit(t_data *data);
-int				check_exit(char *prompt);
-void			ft_env(t_data *data);
-int				check_env(char *prompt);
-
-//Built-in2.c
-int				check_pwd(char *prompt);
-void			ft_pwd(t_data *data);
+//Builtins.c
+int				ft_exit(char **cmds);
+void			exit_neg(int neg_errno);
+void			exit_num_errors(char **cmds);
+void			exit_arg_errors(void);
 int				check_cd(char *prompt);
 
-//Built-in3.c
+//Builtins2.c
+int				check_pwd(char *prompt);
+int				has_equal_sign(char **var);
+int				ft_pwd(t_token *token);
+t_environ		*new_env(char *var);
 
-void			ft_export(t_data *data, char **cmd);
+//Builtins3.c
+int				ft_export(t_mini *mini, char **var);
 void			ft_echo2(int i, int n_option, t_token *token);
 int				ft_unset(t_token *token);
 int				ft_echo(t_token *token);
 void			ft_unset2(t_mini *mini);
 
 //Builtins4.c
+void			display_error(char *cmd);
 char			*get_env_line(char *var, t_data *data);
-void			ft_cd(t_data *data, char **cmdarray);
+int				ft_cd(t_mini *mini, t_token *token);
 void			ft_cd_export(t_data *data, char **cmd, char *pwd);
 
-//token.c
+//Builtins5.c
+t_export		*ft_exp(t_mini *mini, char *var);
+void			init_export(t_mini *mini, char **var);
+int				check_export(char **var);
+int				export_no_input(t_mini *mini);
+int				ft_export(t_mini *mini, char **var);
 
+//Builtins6.c
+void			do_export(t_mini *mini, char **var);
+
+//err_codes.c
+char			*check_cmd2(t_token *token);
+int				check_cmd(t_token *token);
+int				update_error(t_mini *mini);
+int				set_error(t_token *token);
+
+//err_msg.c
+int				syntax_error(void);
+int				invalid_path(char *error);
+int				command_not_found(char *error);
+int				is_a_directory(char *error);
+int				launch_fail(char **env);
+
+//dispatcher.c
+int				is_builtin(t_token *token);
+int				ft_builtins(t_token *token);
+
+//token.c
 int				ft_parse(t_mini	*mini);
 int				ft_count(char *str);
 char			*ft_expend(t_data *data);
 char			***ft_commandarray(t_data *data);
 
 //quote.c
-
 bool			valid_quote(char *str, int len, int quote);
 bool			contain_cash(char *str);
 char			*ft_dollar_switch(char *str, t_data *data);
 
 //execution.c
-
+char			*get_path(t_token *token);
+void			exec_fail(t_token *token, char *path, char **env);
+int				exec(t_token *token);
+void			wait_pids(t_token *token);
 char			*get_command_path(char *argv, char **envp);
-void			get_command(char **argv, char **envp, int argval);
 
-//exec utils.c
-void			ft_execute(t_data *data);
-void			parent(char **argv, char **envp, int *fd);
-void			child(char **argv, char **envp, int *fd);
+//exec_utils.c
+void			continue_child(t_token *token);
+void			do_child_stuff(t_token *token);
+void			continue_exec(t_token *token);
+void			exec_and_stuff(t_token	*token);
+void			exec_and_stuff2(t_token *token);
 
 //mini_split.c
 int				nb_of_words(char *s, int trigger, int i, int nb_wrds);
