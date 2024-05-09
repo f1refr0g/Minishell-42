@@ -22,3 +22,24 @@ char	*get_prompt(char *ptr)
 	exit(g_errno);
 	return (NULL);
 }
+
+char	*get_hd_prompt(char *prt)
+{
+	char	*line;
+	t_mini	*mini;
+
+	mini = get_data();
+	line = readline(prt);
+	while (line)
+	{
+		if (!is_empty(line))
+			add_history(line);
+		return (line);
+	}
+	g_errno = 1;
+	if (mini->tokens->fd_hd)
+		close(mini->tokens->fd_hd);
+	free_minishell(mini);
+	exit(g_errno);
+	return (NULL);
+}
