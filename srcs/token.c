@@ -1,27 +1,46 @@
 #include "../include/minishell.h" 
 
-char	***ft_commandarray(t_data *data)
+void	tokens_next_sep(t_token *tokens)
 {
-	char	***cmd_array;
-	char	**splited_pipe;
-	int		count;
-	int		i;
+	if (!ft_strncmp(tokens->next_sep, "|", 2))
+		tokens->type = PIPE;
+	else if (!ft_strncmp(tokens->next_sep, "<<", 3))
+		tokens->type = REDIR_DBL2;
+	else if (!ft_strncmp(tokens->next_sep, ">>", 3))
+		tokens->type = REDIR_DBL;
+	else if (!ft_strncmp(tokens->next_sep, "<", 2))
+		tokens->type = REDIR_OUT;
+	else if (!ft_strncmp(tokens->next_sep, ">", 2))
+		tokens->type = REDIR_IN;
+}
 
-	count = 0;
-	i = 0;
-	splited_pipe = ft_splitdoc(data->prompt, '|');
-	while (splited_pipe[count] != NULL)
-		count++;
-	cmd_array = malloc((count + 1) * sizeof(char **));
-	if (cmd_array == NULL)
-		printf(MALLOC_ERROR);
-	while (i < count)
+void	set_var_tokens(t_mini *mini, t_token *tokens, int x, int wrd_no)
+{
+	tokens->cmd[wrd_no] = NULL;
+	tokens->type = 0;
+	tokens->token_no = x;
+	mini->no_of_tokens = x;
+	tokens->env = mini->env_test;
+	tokens->fd_out = 0;
+	tokens->fd_in = 0;
+	tokens->mini = mini;
+	tokens->next = NULL;
+	tokens->pid = 0;
+}
+
+int	check_file_exists(t_token *token)
+{
+	if (token->cmd && token->cmd[1] && ft_strncmp(token->cmd[0], "echo", 5))
 	{
-		cmd_array[i] = ft_splitdoc(splited_pipe[i], 32);
-		i++;
+		if (token->cmd[1][0] != '-')
+		{
+			if (access(token->cmd[1], F_OK | X_OK) == 0)
+				g_errno = 0;
+			else
+				g_errno = 1;
+		}
 	}
-	cmd_array[i] = NULL;
-	return (cmd_array);
+	return (g_errno);
 }
 
 int	ft_parse(t_mini	*mini)

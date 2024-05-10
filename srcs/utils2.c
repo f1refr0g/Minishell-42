@@ -1,5 +1,23 @@
 #include "../include/minishell.h"
 
+int	is_empty(char *prompt)
+{
+	int	i;
+
+	i = 0;
+	if (!prompt || !prompt[0] || prompt == NULL)
+		return (1);
+	while (prompt[i] && (ft_isonlyspace(prompt[i]) || prompt[i] == '|'))
+	{
+		if (prompt[i] == '|')
+			return (0);
+		i++;
+	}
+	if (prompt[i] == '\0')
+		return (1);
+	return (0);
+}
+
 int	check_valid_quotes(char *input)
 {
 	int	i;

@@ -1,5 +1,13 @@
 #include "../include/minishell.h"
 
+int	parsing_fail(int parsing, t_mini *mini)
+{
+	if (parsing == -1)
+		ft_putendl_fd("exit", 2);
+	free_minishell(mini);
+	return (g_errno);
+}
+
 void	set_mini_no_wrds(void)
 {
 	t_mini	*mini;

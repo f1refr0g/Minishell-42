@@ -6,7 +6,7 @@
 /*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:50:51 by abeaudet          #+#    #+#             */
-/*   Updated: 2024/05/01 13:53:18 by oldrolet         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:19:50 by oldrolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_read(int fd, char **str, char **temp)
 		i = read(fd, buffy, BUFFER_SIZE);
 		if (i == -1)
 		{
-			ft_free(&buffy, str, temp);
+			ft_freeab(&buffy, str, temp);
 			return ;
 		}
 		buffy[i] = '\0';

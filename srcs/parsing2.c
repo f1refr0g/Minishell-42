@@ -119,6 +119,6 @@ int	check_input(t_mini *mini)
 		return (1);
 	}
 	else
-		syntax_error(0);
+		syntax_error();
 	return (0);
 }

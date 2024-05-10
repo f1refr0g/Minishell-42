@@ -33,15 +33,15 @@ void	ft_signal_handler_parent(int mode)
 {
 	if (mode == INTERACTIVE)
 	{
-		signal(SIGINT, &interactive_shell);
 		signal(SIGQUIT, SIG_IGN);
+		signal(SIGINT, &interactive_shell);
 	}
 	else if (mode == CHILD)
 	{
-		signal(SIGINT, &ft_int_handler);
 		signal(SIGQUIT, &ft_quit_handler);
+		signal(SIGINT, &ft_int_handler);
 	}
-	else if (mode == HERE_DOC_SIG)
+	else if (mode == HD_SIG)
 	{
 		signal(SIGINT, &ft_doc_sig_handle);
 		signal(SIGQUIT, SIG_IGN);

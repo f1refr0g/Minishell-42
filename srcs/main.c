@@ -1,5 +1,4 @@
 #include "../include/minishell.h"
-
 #include <stdlib.h>		// Free
 #include <stdbool.h>	// Bool (true/false)
 
@@ -18,6 +17,16 @@ void	*releaser(char **table)
 		free(table);
 	}
 	return (NULL);
+}
+
+void	run_minishell(t_mini *mini)
+{
+	t_token	*token;
+
+	token = mini->tokens;
+	ft_signal_handler_parent(CHILD);
+	exec_and_stuff(token);
+	free_tokens(mini->tokens);
 }
 
 int	main(int ac, char **av, char **env)

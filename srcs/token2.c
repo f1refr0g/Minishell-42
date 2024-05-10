@@ -1,19 +1,5 @@
 #include "../include/minishell.h"
 
-void	set_var_tokens(t_mini *mini, t_token *tokens, int x, int wrd_no)
-{
-	tokens->cmd[wrd_no] = NULL;
-	tokens->type = 0;
-	tokens->token_no = x;
-	mini->no_of_tokens = x;
-	tokens->env = mini->env_test;
-	tokens->fd_out = 0;
-	tokens->fd_in = 0;
-	tokens->mini = mini;
-	tokens->next = NULL;
-	tokens->pid = 0;
-}
-
 t_token	*init_tokens(t_mini *mini, int cmd_index, int x)
 {
 	t_token	*tokens;
@@ -54,20 +40,6 @@ void	ft_chain(t_mini *mini, int cmd_index)
 		mini->tokens->next = init_tokens(mini, cmd_index, x++);
 		mini->tokens = mini->tokens->next;
 	}
-}
-
-void	tokens_next_sep(t_token *tokens)
-{
-	if (!ft_strncmp(tokens->next_sep, "|", 2))
-		tokens->type = PIPE;
-	else if (!ft_strncmp(tokens->next_sep, "<<", 3))
-		tokens->type = REDIR_DBL2;
-	else if (!ft_strncmp(tokens->next_sep, ">>", 3))
-		tokens->type = REDIR_DBL;
-	else if (!ft_strncmp(tokens->next_sep, "<", 2))
-		tokens->type = REDIR_OUT;
-	else if (!ft_strncmp(tokens->next_sep, ">", 2))
-		tokens->type = REDIR_IN;
 }
 
 void	token_type(t_token *tokens)

@@ -10,20 +10,37 @@ SRC_DIR := srcs
 FILES :=	main.c\
 			env.c\
 			env2.c\
+			env3.c\
+			err_codes.c\
+			err_msg.c\
 			init_minishell.c\
 			builtins.c\
 			builtins2.c\
 			builtins3.c\
 			builtins4.c\
+			builtins5.c\
+			builtins6.c\
 			clean.c\
+			free.c\
+			heredoc.c\
 			mini_split.c\
 			token.c\
 			quote.c\
 			execution.c\
+			exec_utils.c\
 			prompt.c\
 			parsing.c\
+			parsing2.c\
+			pipes.c\
+			pipes2.c\
+			redir.c\
+			redir2.c\
+			strtok.c\
+			token.c\
+			token2.c\
 			utils.c\
 			utils2.c\
+			utils3.c\
 			strtok.c\
 			set_shlvl.c\
 			exec_utils.c\

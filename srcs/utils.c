@@ -21,13 +21,6 @@ t_mini	*get_data(void)
 	return (mini);
 }
 
-void	*ft_other_free(void *p)
-{
-	if (p)
-		free(p);
-	return (0x0);
-}
-
 int	is_sep(char *str)
 {
 	int	i;

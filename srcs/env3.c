@@ -61,7 +61,7 @@ char	**env_l_to_dbl_arr(t_environ *env)
 		temp = ft_strjoin(head->env_var, "=");
 		temp_env[env_item_no] = ft_strjoin(temp, head->env_val);
 		env_item_no++;
-		temp = ft_free(temp);
+		temp = ft_other_free(temp);
 		head = head->next;
 	}
 	temp_env[env_item_no] = NULL;
