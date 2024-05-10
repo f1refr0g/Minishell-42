@@ -1,6 +1,6 @@
 #include "../include/minishell.h"
 
-int	child_redir_to(t_token *token)
+void	child_redir_to(t_token *token)
 {
 	t_mini	*mini;
 

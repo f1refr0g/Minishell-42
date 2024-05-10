@@ -331,7 +331,7 @@ void			redir(t_token *token);
 int				token_size(t_token *token);
 
 //redir2.c
-int				child_redir_to(t_token *token);
+void			child_redir_to(t_token *token);
 void			redir2(t_token *token);
 
 #endif

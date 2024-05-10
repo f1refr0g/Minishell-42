@@ -59,6 +59,7 @@ int	ft_export(t_mini *mini, char **var)
 		return (0);
 	init_export(mini, var);
 	do_export(mini, var);
+	return (0);
 }
 
 void	ft_echo2(int i, int n_option, t_token *token)

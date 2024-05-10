@@ -70,7 +70,7 @@ int	heredoc(t_token *token)
 	heredoc_input = "temp";
 	delimiter = (token->next->cmd[0]);
 	token->fd_hd = open(".temp", O_RDWR | O_CREAT | O_TRUNC, 0777);
-	init_signals(HD_SIG);
+	ft_signal_handler_parent(HD_SIG);
 	get_heredoc_input(heredoc_input, delimiter, token);
 	close(token->fd_hd);
 	if (token->next && token->next->type == PIPE)

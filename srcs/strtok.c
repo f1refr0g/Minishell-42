@@ -1,25 +1,25 @@
 #include "../include/minishell.h"
 
-static int	ft_countwords(const char *str, char a)
-{
-	int	i;
-	int	j;
+// static int	ft_countwords(const char *str, char a)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	j = 0;
-	while (*str)
-	{
-		if (*str != a && j == 0)
-		{
-			j = 1;
-			i++;
-		}
-		else if (*str == a)
-			j = 0;
-		str++;
-	}
-	return (i);
-}
+// 	i = 0;
+// 	j = 0;
+// 	while (*str)
+// 	{
+// 		if (*str != a && j == 0)
+// 		{
+// 			j = 1;
+// 			i++;
+// 		}
+// 		else if (*str == a)
+// 			j = 0;
+// 		str++;
+// 	}
+// 	return (i);
+// }
 
 // static char	*word_up(const char *str, int debut, int fin)
 // {

@@ -77,13 +77,3 @@ int	export_no_input(t_mini *mini)
 	}
 	return (0);
 }
-
-int	ft_export(t_mini *mini, char **var)
-{
-	if (!var || !var[0] || !var[0][0])
-		return (export_no_input(mini));
-	if (!check_export(var))
-		return (0);
-	init_export(mini, var);
-	do_export(mini, var);
-}
