@@ -21,7 +21,7 @@ int	has_equal_sign(char **var)
 	var_char = 0;
 	if (!var)
 		return (0);
-	if ((!var[0][0] == 0) && !ft_isalpha(var[0][0]))
+	if (!(var[0][0] == 0) && !ft_isalpha(var[0][0]))
 		return (0);
 	while (var[var_wrd])
 	{
