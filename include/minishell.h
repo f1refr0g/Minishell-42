@@ -20,7 +20,7 @@
 # define QUOTE_ERROR "Error : Invalid quote\n"
 
 //Quote handling
-# define PROMPT "Minishell-42$ "
+# define PROMPT "Minishell-42 > "
 # define HEREDOC "heredoc > "
 # define EMPTY 0
 # define CMD 1
@@ -218,14 +218,14 @@ void			free_child(t_mini *mini);
 //heredoc.c
 char			**build_heredoc_cmd2(t_token *token);
 int				do_heredoc(t_token *token);
-void			get_heredoc_input(char *heredoc_input, char *delimiter, t_token *token);
 int				heredoc(t_token *token);
 
 //token.c
 int				ft_parse(t_mini	*mini);
 int				check_file_exists(t_token *token);
 void			tokens_next_sep(t_token *tokens);
-void			set_var_tokens(t_mini *mini, t_token *tokens, int x, int wrd_no);
+void			set_var_tokens(t_mini *mini, t_token *tokens,
+					int x, int wrd_no);
 
 //token2.c
 t_token			*init_tokens(t_mini *mini, int cmd_index, int x);

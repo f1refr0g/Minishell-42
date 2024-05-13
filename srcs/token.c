@@ -52,7 +52,7 @@ int	ft_parse(t_mini	*mini)
 	}
 	mini->no_wrds = nb_of_words(mini->input, 0, 0, 0) + 1;
 	mini->cmds = small_split(mini->input);
-	if (mini->cmds || mini->cmds == NULL)
+	if (!mini->cmds || mini->cmds == NULL)
 		return (0);
 	mini->new_cmds = parse_mini_cmds();
 	if (!check_input(mini))
