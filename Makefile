@@ -8,11 +8,13 @@ LIBFT = ./include/libft/libft.a
 
 SRC_DIR := srcs
 FILES :=	main.c\
+			absolute.c\
 			env.c\
 			env2.c\
 			env3.c\
 			err_codes.c\
 			err_msg.c\
+			dispatcher.c\
 			init_minishell.c\
 			builtins.c\
 			builtins2.c\
@@ -24,7 +26,6 @@ FILES :=	main.c\
 			free.c\
 			heredoc.c\
 			mini_split.c\
-			token.c\
 			quote.c\
 			execution.c\
 			exec_utils.c\
@@ -43,7 +44,6 @@ FILES :=	main.c\
 			utils3.c\
 			strtok.c\
 			set_shlvl.c\
-			exec_utils.c\
 			signal.c\
 			
 SRCS := $(addprefix $(SRC_DIR)/, $(FILES))

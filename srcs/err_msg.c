@@ -38,12 +38,3 @@ int	is_a_directory(char *error)
 	g_errno = 126;
 	return (126);
 }
-
-int	launch_fail(char **env)
-{
-	if (!env[0])
-	{
-		ft_putendl_fd("Unable to launch Minishell", 2);
-	}
-	return (0);
-}

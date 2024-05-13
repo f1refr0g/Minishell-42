@@ -1,5 +1,20 @@
 #include "../include/minishell.h" 
 
+int	check_file_exists(t_token *token)
+{
+	if (token->cmd && token->cmd[1] && ft_strncmp(token->cmd[0], "echo", 5))
+	{
+		if (token->cmd[1][0] != '-')
+		{
+			if (access(token->cmd[1], F_OK | X_OK) == 0)
+				g_errno = 0;
+			else
+				g_errno = 1;
+		}
+	}
+	return (g_errno);
+}
+
 void	tokens_next_sep(t_token *tokens)
 {
 	if (!ft_strncmp(tokens->next_sep, "|", 2))
@@ -28,21 +43,6 @@ void	set_var_tokens(t_mini *mini, t_token *tokens, int x, int wrd_no)
 	tokens->pid = 0;
 }
 
-int	check_file_exists(t_token *token)
-{
-	if (token->cmd && token->cmd[1] && ft_strncmp(token->cmd[0], "echo", 5))
-	{
-		if (token->cmd[1][0] != '-')
-		{
-			if (access(token->cmd[1], F_OK | X_OK) == 0)
-				g_errno = 0;
-			else
-				g_errno = 1;
-		}
-	}
-	return (g_errno);
-}
-
 int	ft_parse(t_mini	*mini)
 {
 	if (!check_valid_quotes(mini->input))
@@ -67,27 +67,27 @@ int	ft_parse(t_mini	*mini)
 }
 
 //Count the number of redirection (times 2) for ft_expend
-int	ft_count(char *str)
-{
-	int	i;
-	int	count;
+// int	ft_count(char *str)
+// {
+// 	int	i;
+// 	int	count;
 
-	i = 0;
-	count = 0;
-	while (str[i] && str[i] != '\0')
-	{
-		if (str[i] == '|')
-			count += 2;
-		while (ft_strncmp(&str[i], ">>", 2) == 0
-			|| ft_strncmp(&str[i], "<<", 2) == 0)
-		{
-			count += 2;
-			i += 2;
-		}
-		if (str[i] == '>' || str[i] == '<')
-			count += 2;
-		if (str[i])
-			i++;
-	}
-	return (count);
-}
+// 	i = 0;
+// 	count = 0;
+// 	while (str[i] && str[i] != '\0')
+// 	{
+// 		if (str[i] == '|')
+// 			count += 2;
+// 		while (ft_strncmp(&str[i], ">>", 2) == 0
+// 			|| ft_strncmp(&str[i], "<<", 2) == 0)
+// 		{
+// 			count += 2;
+// 			i += 2;
+// 		}
+// 		if (str[i] == '>' || str[i] == '<')
+// 			count += 2;
+// 		if (str[i])
+// 			i++;
+// 	}
+// 	return (count);
+// }

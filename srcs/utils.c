@@ -3,7 +3,8 @@
 int	ft_isonlyspace(int c)
 {
 	c = (unsigned char)c;
-	if (c >= 9 && c <= 13 || c == 32)
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
 		return (1);
 	return (0);
 }

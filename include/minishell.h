@@ -203,7 +203,6 @@ int				syntax_error(void);
 int				invalid_path(char *error);
 int				command_not_found(char *error);
 int				is_a_directory(char *error);
-int				launch_fail(char **env);
 
 //dispatcher.c
 int				is_builtin(t_token *token);
@@ -224,7 +223,6 @@ int				heredoc(t_token *token);
 
 //token.c
 int				ft_parse(t_mini	*mini);
-int				ft_count(char *str);
 int				check_file_exists(t_token *token);
 void			tokens_next_sep(t_token *tokens);
 void			set_var_tokens(t_mini *mini, t_token *tokens, int x, int wrd_no);
@@ -273,8 +271,6 @@ int				is_sep(char *str);
 int				is_sep2(char *str);
 
 //utils2.c
-int				check_valid_quotes(char *input);
-int				is_empty(char *prompt);
 int				check_valid_quotes(char *input);
 int				is_quote(int c);
 int				has_quotes(char *str);
