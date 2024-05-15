@@ -39,7 +39,14 @@ void	ft_chain(t_mini *mini, int cmd_index)
 			cmd_index++;
 		mini->tokens->next = init_tokens(mini, cmd_index, x++);
 		mini->tokens = mini->tokens->next;
+		while (mini->new_cmds[cmd_index] && !is_sep(mini->new_cmds[cmd_index]))
+			cmd_index++;
+		if ((mini->new_cmds[cmd_index]))
+			mini->tokens->next_sep = ft_strdup(mini->new_cmds[cmd_index]);
+		else
+			mini->tokens->next_sep = NULL;
 	}
+	mini->tokens = head;
 }
 
 void	token_type(t_token *tokens)
