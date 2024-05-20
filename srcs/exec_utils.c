@@ -66,6 +66,7 @@ void	exec_and_stuff(t_token	*token)
 
 	mini = get_data();
 	update_error(mini);
+	printf("ici");
 	if (token == NULL)
 		return ;
 	if (!ft_builtins(token))
