@@ -29,7 +29,7 @@ void	init_export(t_mini *mini, char **var)
 	export_head = mini->_export;
 	while (var[++x])
 	{
-		mini->_export = ft_exp(mini, var[x]);
+		mini->_export->next = ft_exp(mini, var[x]);
 		mini->_export = mini->_export->next;
 	}
 	mini->_export->next = NULL;
