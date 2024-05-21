@@ -1,7 +1,7 @@
 CC = gcc
 RM = rm -rf
 NAME = minishell
-FLAG = -Wall -Werror -Wextra -g
+FLAG = -Wall -Werror -Wextra -g -fsanitize=address
 SPECIAL_FLAG = -L./readline -lreadline -lhistory
 LIB_PATH = include/libft
 LIBFT = ./include/libft/libft.a

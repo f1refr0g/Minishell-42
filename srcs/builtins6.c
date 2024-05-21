@@ -12,7 +12,7 @@ void	do_export(t_mini *mini, char **var)
 	while (head != NULL)
 	{
 		temp = get_env_part(mini, head->env_var);
-		if (temp[0] != '\0')
+		if (temp == NULL || temp[0] != '\0')
 		{
 			update_env_part3(mini, head->env_var, head->env_val);
 			x++;
