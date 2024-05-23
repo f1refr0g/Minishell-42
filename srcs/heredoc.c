@@ -56,7 +56,9 @@ void	get_heredoc_input(char *heredoc_input, char *delimiter, t_token *token)
 	{
 		heredoc_input = get_hd_prompt(HEREDOC);
 		if (ft_strncmp(heredoc_input, delimiter, ft_strlen(delimiter) + 1))
+		{
 			ft_putendl_fd(heredoc_input, token->fd_hd);
+		}
 	}
 }
 

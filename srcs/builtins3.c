@@ -34,7 +34,7 @@ int	ft_unset(t_token *token)
 	mini = get_data();
 	if (!token->cmd[1] || !token->cmd[1][0])
 		return (0);
-	cmd_no = -1;
+	cmd_no = 1;
 	while (token->cmd[cmd_no])
 	{
 		part = (token->cmd[cmd_no]);
