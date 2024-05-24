@@ -56,3 +56,17 @@ https://42-cursus.gitbook.io/guide/exams/exam-rank-02/level-1/fizz_buzz#fizz_buz
 
 
     https://github.com/nickdotht/minishell
+
+
+    < b cat < a
+
+    cat|cat\0
+
+    cat << a << b << c | cat << e
+
+brrew install readlin
+
+quand tu vois la librarie readline, entre, fait cd, ./configure, make
+donne .a readline + .a read history
+les 2 on les compile avec le programe dans le makefile
+-L include/readline -l readline -l ncurses \
