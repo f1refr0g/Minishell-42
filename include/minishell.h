@@ -239,8 +239,10 @@ char			*pre_dollar_sign(char *mini_cmd);
 char			*get_dollar_sign(char *mini_cmd);
 int				dollar_len(char *mini_cmd);
 bool			valid_quote(char *str, int len, int quote);
-int				contain_cash(char *input);
 char			*ft_dollar_switch(char *mini_cmd);
+
+//quote2.c
+int				contain_cash(char *input);
 
 //execution.c
 char			*get_path(t_token *token);
