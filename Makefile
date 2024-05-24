@@ -1,7 +1,7 @@
 CC = gcc
 RM = rm -rf
 NAME = minishell
-FLAG = -Wall -Werror -Wextra -g -fsanitize=address
+FLAG = -Wall -Werror -Wextra -g #-fsanitize=address
 SPECIAL_FLAG = -L./readline -lreadline -lhistory
 LIB_PATH = include/libft
 LIBFT = ./include/libft/libft.a
@@ -83,7 +83,7 @@ fclean: clean
 re: fclean all
 
 leaks: $(NAME)
-	valgrind --track-fds=yes --trace-children=yes --leak-check=full --show-leak-kinds=all --show-reachable=yes --suppressions=./minishell.sup ./$(NAME)
+	valgrind --track-fds=yes --trace-children=yes --leak-check=full --show-leak-kinds=all --show-reachable=yes --suppressions=valgrind.supp ./$(NAME)
 
 run: $(NAME)
 	@./$(NAME)

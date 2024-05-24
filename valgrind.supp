@@ -1,0 +1,125 @@
+{
+   locale_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__part_load_locale
+   fun:__numeric_load_locale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   locale_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__part_load_locale
+   fun:__messages_load_locale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   locale_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__part_load_locale
+   fun:__monetary_load_locale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   locale_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__numeric_load_locale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   locale_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__messages_load_locale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   realloc_bin_ls
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   fun:???
+   fun:???
+   fun:???
+   fun:???
+   fun:start
+}
+
+{
+   collate_load
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__collate_load_tables
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}
+
+{
+   smakebuf
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:__smakebuf
+   fun:__swsetup
+   fun:__swbuf
+   fun:putchar
+   fun:???
+   fun:???
+   fun:???
+   fun:???
+   fun:start
+}
+
+{
+   reallocf
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/system/libsystem_c.dylib
+   fun:reallocf
+   fun:_Read_RuneMagi
+   fun:__setrunelocale
+   fun:__wrap_setrunelocale
+   fun:loadlocale
+   fun:setlocale
+   fun:???
+   fun:start
+}

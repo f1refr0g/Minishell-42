@@ -1,4 +1,3 @@
-
 #include "../include/minishell.h"
 
 void	display_error(char *cmd)

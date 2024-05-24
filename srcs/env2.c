@@ -77,5 +77,5 @@ char	*get_env_part(t_mini *mini, char *part)
 			return (head->env_val);
 		head = head->next;
 	}
-	return (NULL);
+	return ("");
 }
