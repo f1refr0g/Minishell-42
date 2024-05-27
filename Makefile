@@ -2,7 +2,10 @@ CC = gcc
 RM = rm -rf
 NAME = minishell
 FLAG = -Wall -Werror -Wextra -g #-fsanitize=address
-SPECIAL_FLAG = -L./readline -lreadline -lhistory
+SPECIAL_FLAG = -lreadline -lncurses
+RL_DIR = INCLUDE/readline
+RL = readline-8.2
+RLINE = $(RL_DIR)/libreadline.a
 LIB_PATH = include/libft
 LIBFT = ./include/libft/libft.a
 
@@ -51,7 +54,7 @@ SRCS := $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS_DIR := objs
 OBJS := $(addprefix $(OBJS_DIR)/, $(FILES:.c=.o))
 
-all: libinit $(OBJS_DIR) $(NAME)
+all: readline libinit $(OBJS_DIR) $(NAME)
 
 $(OBJS_DIR):
 	@mkdir -p $(dir $(OBJS))
@@ -61,11 +64,22 @@ $(OBJS_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJS_DIR)
 	@echo $(BLACKBCK)$(CYAN)[-] Compiling: $@$(ENDCOLOR)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAG) $(OBJS) -lncurses -o $(NAME) $(SPECIAL_FLAG) $(LIBFT)
+	$(CC) $(FLAG) $(OBJS) -o $(NAME) $(RLINE) $(SPECIAL_FLAG) $(LIBFT)
 	@echo $(SUCCESS)
 
 libinit:
 	$(MAKE) -s -C ./include/libft
+
+readline: 
+	@if [ ! -f ./include/readline/libreadline.a ]; then \
+		mkdir -p $(RL_DIR); \
+		curl -O https://ftp.gnu.org/gnu/readline/$(RL).tar.gz; \
+		tar -xf $(RL).tar.gz; \
+		rm -rf $(RL).tar.gz; \
+		cd $(RL) && bash configure && make; \
+		mv ./libreadline.a ../$(RL_DIR); \
+		rm -rf ../$(RL); \
+		fi
 
 COMMIT = $(shell date "+%d %B %T")
 git:
