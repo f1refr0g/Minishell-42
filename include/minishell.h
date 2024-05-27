@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   minishell.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/27 17:40:40 by oldrolet          #+#    #+#             */
+/*   Updated: 2024/05/27 17:40:50 by oldrolet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
@@ -298,7 +310,6 @@ void			interactive_shell(int signal);
 void			ft_doc_sig_handle(int signal);
 void			ft_quit_handler(int signal);
 void			ft_int_handler(int signal);
-extern void		rl_replace_line(const char *, int);
 
 //Parsing.c
 char			**parse_mini_cmds(void);

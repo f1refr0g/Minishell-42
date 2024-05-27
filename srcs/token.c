@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   token.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/27 17:40:15 by oldrolet          #+#    #+#             */
+/*   Updated: 2024/05/27 17:40:16 by oldrolet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/minishell.h" 
 
 int	check_file_exists(t_token *token)
@@ -65,29 +77,3 @@ int	ft_parse(t_mini	*mini)
 		return (ft_exit(mini->tokens->cmd));
 	return (1);
 }
-
-//Count the number of redirection (times 2) for ft_expend
-// int	ft_count(char *str)
-// {
-// 	int	i;
-// 	int	count;
-
-// 	i = 0;
-// 	count = 0;
-// 	while (str[i] && str[i] != '\0')
-// 	{
-// 		if (str[i] == '|')
-// 			count += 2;
-// 		while (ft_strncmp(&str[i], ">>", 2) == 0
-// 			|| ft_strncmp(&str[i], "<<", 2) == 0)
-// 		{
-// 			count += 2;
-// 			i += 2;
-// 		}
-// 		if (str[i] == '>' || str[i] == '<')
-// 			count += 2;
-// 		if (str[i])
-// 			i++;
-// 	}
-// 	return (count);
-// }
