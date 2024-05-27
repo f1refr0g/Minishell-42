@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: admin <admin@student.42.fr>                +#+  +:+       +#+        */
+/*   By: oldrolet <oldrolet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 12:49:53 by abeaudet          #+#    #+#             */
-/*   Updated: 2024/02/06 14:27:42 by admin            ###   ########.fr       */
+/*   Updated: 2024/05/27 17:44:02 by oldrolet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,3 @@ void	**ft_free_array(char **array)
 	array = ft_freeptr(array);
 	return (NULL);
 }
-
-// void	**ft_free_array(char **array)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	if (!array)
-// 		return (NULL);
-// 	while (array[i])
-// 	{
-// 		free(array[i]);
-// 		i++;
-// 	}
-// 	free(array);
-// 	return (NULL);
-// }
-
-
